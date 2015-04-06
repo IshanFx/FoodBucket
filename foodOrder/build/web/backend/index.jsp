@@ -1,3 +1,7 @@
+<%@page import="java.util.TimeZone"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.sql.Date" %>
 <%@page import="java.util.HashMap"%>
 <%@page import="com.foodbucket.reportModel.Report"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -43,7 +47,10 @@
 
         <!-- Navigation -->
         <%@include file="menu.jsp" %>
-
+            <% Calendar calendar = Calendar.getInstance(TimeZone.getDefault()); 
+               int month= calendar.get(Calendar.MONTH) + 1;
+               int year = calendar.get(Calendar.YEAR);
+            %>
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -109,7 +116,7 @@
                                     <div class="col-xs-9 text-right">
                                     <% Report r = new Report();  %>
                                     
-                                        <div class="huge"><%=r.getAnnualIncome() %></div>
+                                        <div class="huge"><%=r.getAnnualIncome(year) %></div>
                                         <div>Annual Income</div>
                                     </div>
                                 </div>
@@ -132,7 +139,7 @@
                                         <i class="fa fa-money fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><%=r.getCurrentMonthIncome() %></div>
+                                        <div class="huge"><%=r.getCurrentMonthIncome(month,year) %></div>
                                         <div>Monthly Income</div>
                                     </div>
                                 </div>
@@ -162,7 +169,7 @@
                                         <i class="fa fa-shopping-cart fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
+                                        <div class="huge"><%=r.getSpecialorderCount()+r.getNormalOrderCount() %></div>
                                         <div>New Orders</div>
                                     </div>
                                 </div>
@@ -277,7 +284,7 @@
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
     <% Report report2 = new Report(); %>
-    <% HashMap<String,String> table = report2.getAllMonthIncome(); %>
+    <% HashMap<String,String> table = report2.getAllMonthIncome(year); %>
     
     <script>
        function chart1(){
@@ -339,10 +346,10 @@
                     element: 'morris-donut-chart',
                     data: [{
                         label: "Normal Orders",
-                        value: 12
+                        value: <%=r.getNormalOrderCount() %>
                     }, {
                         label: "Special orders",
-                        value: 30
+                        value: <%=r.getSpecialorderCount() %>
                     },],
                     resize: true
                 });

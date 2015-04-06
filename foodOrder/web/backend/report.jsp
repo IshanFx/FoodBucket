@@ -1,3 +1,6 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.foodbucket.reportModel.Report"%>
@@ -40,7 +43,7 @@
     <div id="wrapper">
         <!-- Navigation -->
     <%@include file="menu.jsp" %>
-
+  
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
@@ -66,59 +69,42 @@
                                  <!-- Monthly income tab start-->
                                 <div class="tab-pane fade active in" id="month">
                                     <h4>Monthly Income</h4>
-                                    <div class="col-md-12">
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>First Name</th>
-                                                                <th>Last Name</th>
-                                                                <th>Username</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>Jacob</td>
-                                                                <td>Thornton</td>
-                                                                <td>@fat</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                    <% Report report1 = new Report();
+                                       ArrayList<String> list = report1.selectDistinctYear();
+                                       Iterator<String> iterator = list.iterator();
+                                       
+                                    %>
+                                        <!-- Select year to get Monthly income-->
+                                        <div class="col-md-2">
+                                            <select class="form-control" name="category" id="yearselect" > 
+                                               
+                                            <% while(iterator.hasNext()){ String yearVal = iterator.next(); %>
+                                            <option value='<%=yearVal %>'><%=yearVal %></option>
+                                            <%   } %>   
+                                            
+                                            </select> 
+                                        </div>
+                                    <br><br><br>
+                                  
+                                    
+                                        <div class="col-lg-12">
+                                            <div class="panel panel-red">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>Monthly Income</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div id="monthlyIncomeChart">
+                                                        
+                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!--Monthly Income Chart -->
-                                    <div class="col-lg-12">
-                                        <div class="panel panel-success">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>Monthly Income</h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div id="morris-bar-chart1"></div>
-                                                <div class="text-right">
-                                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                  
+                              
+                              
+                           
                                 </div>
                                 <!-- Annual income tab End-->
                                  
@@ -164,7 +150,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+                                <input id="annualincometab" value="click" name="buttion" type="button">
                                     <!--Annual Income Chart -->
                                     <div class="col-lg-12">
                                         <div class="panel panel-green">
@@ -173,9 +159,7 @@
                                             </div>
                                             <div class="panel-body">
                                                 <div id="morris-bar-chart2"></div>
-                                                <div class="text-right">
-                                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -248,90 +232,48 @@
     <script src="js/plugins/flot/jquery.flot.resize.js"></script>
     <script src="js/plugins/flot/jquery.flot.pie.js"></script>
     <script src="js/plugins/flot/flot-data.js"></script>
-    <% Report report2 = new Report(); %>
-    <% HashMap<String,String> table = report2.getAllMonthIncome(); %>
+    
     
     <script>
-       function chart1(){
-           Morris.Bar({
-        element: 'morris-bar-chart1',
-        data: [{
-            device: 'January',
-            geekbench: <%=table.get("January") %>
-        }, {
-            device: 'February',
-            geekbench: <%=table.get("February") %>
-        }, {
-            device: 'March',
-            geekbench: <%=table.get("March") %>
-        }, {
-            device: 'April',
-            geekbench: <%=table.get("April") %>
-        },  {
-            device:'May',
-            geekbench:<%=table.get("May") %>
-        },
-            {
-            device: 'June',
-            geekbench: <%=table.get("June") %>
-        }, {
-            device: 'July',
-            geekbench: <%=table.get("July") %>
-        }, {
-            device: 'August',
-            geekbench: <%=table.get("August") %>
-        }, {
-            device: 'September',
-            geekbench: <%=table.get("September") %>
-        },{
-            device: 'October',
-            geekbench: <%=table.get("October") %>
-        },{
-            device: 'November',
-            geekbench: <%=table.get("November") %>
-        }, {
-            device: 'December',
-            geekbench: <%=table.get("December") %>
-        },],
-        xkey: 'device',
-        ykeys: ['geekbench'],
-        labels: ['Geekbench'],
-        barRatio: 0.4,
-        xLabelAngle: 35,
-        hideHover: 'auto',
-        resize: true
-    });
-       }
-       chart1();
-        
+   
     </script>
     
+    
+  
     <script>
-       function chart2(){
-           Morris.Bar({
-        element: 'morris-bar-chart2',
-        data: [{
-            device: '2012',
-            geekbench: 500
-        }, {
-            device: '2013',
-            geekbench: 137
-        }, {
-            device: '2014',
-            geekbench: 275
-        },],
-        xkey: 'device',
-        ykeys: ['geekbench'],
-        labels: ['Income'],
-        barRatio: 0.4,
-        xLabelAngle: 35,
-        hideHover: 'auto',
-        resize: true
-    });
-       }
-       chart2();
-        
+        $('#yearselect').change(function(){
+             var year = $(this).val();
+             $('#monthlyIncomeChart').load('monthincome.jsp',{myyear:year});
+           
+          });
     </script>
+    
+    
+    <script>     
+       function chart3(){
+           Morris.Bar({
+                element: 'morris-bar-chart2',
+                data: [              
+                {
+                    device: 'January',
+                    geekbench: 12
+                }, 
+               
+                ],
+                xkey: 'device',
+                ykeys: ['geekbench'],
+                labels: ['Income'],
+                barRatio: 0.4,
+                xLabelAngle: 35,
+                hideHover: 'auto',
+                resize: true
+            });
+        }
+       chart3();       
+    </script>
+  
+  
+
 </body>
 
 </html>

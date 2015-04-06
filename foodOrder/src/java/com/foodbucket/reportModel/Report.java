@@ -6,14 +6,23 @@
 package com.foodbucket.reportModel;
 
 import com.food.managecls.DBConn;
+import com.foodbucket.orderModel.NormalOrderBean;
+import com.foodbucket.orderModel.SpecialOrderBean;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,18 +37,18 @@ public class Report {
     private double specialOrder;
     private double monthlyIncome;
     HashMap<String,String> table;
+    HashMap<Integer,Double> incomeReportTable;
     
-    
-    public double getAnnualIncome(){
+    public double getAnnualIncome(int year){
         
-        String sql1 = "SELECT SUM(ordtotal) FROM normalord_tbl";
+        String sql1 = "SELECT SUM(n.ordtotal) FROM normalord_tbl n JOIN order_tbl o ON n.orderid=o.orderid WHERE o.orderyear='"+year+"' ";
         try {
             stmt = DBConn.dbConn().createStatement();
             rst = stmt.executeQuery(sql1);
             while(rst.next()){
                 normalIncome = rst.getDouble(1);
             }
-            String sql2 = "SELECT SUM(ordtotal) FROM specialord_tbl";
+            String sql2 = "SELECT SUM(s.ordtotal) FROM specialord_tbl s JOIN order_tbl o ON s.orderid=o.orderid WHERE o.orderyear='"+year+"'";
             stmt = DBConn.dbConn().createStatement();
             rst = stmt.executeQuery(sql2);
             while(rst.next()){
@@ -52,9 +61,9 @@ public class Report {
         return normalIncome+specialOrder; 
     }
     
-    public double getCurrentMonthIncome(){
+    public double getCurrentMonthIncome(int month,int year){
     
-        String sql1 = "SELECT SUM(no.ordtotal) FROM normalord_tbl no,order_tbl o WHERE no.orderid=o.orderid AND o.ordermonth=2";
+        String sql1 = "SELECT SUM(n.ordtotal) FROM normalord_tbl n JOIN order_tbl o ON n.orderid=o.orderid WHERE o.orderyear='"+year+"' AND o.ordermonth='"+month+"' ";
         try {
             stmt = DBConn.dbConn().createStatement();
             rst = stmt.executeQuery(sql1);
@@ -62,7 +71,7 @@ public class Report {
                 monthlyIncome = rst.getDouble(1);
             }
             
-            String sql2 = "SELECT SUM(so.ordtotal) FROM specialord_tbl so,order_tbl o WHERE o.orderid=so.orderid AND o.ordermonth=2";
+            String sql2 = "SELECT SUM(so.ordtotal) FROM specialord_tbl so JOIN order_tbl o ON o.orderid=so.orderid WHERE o.orderyear='"+year+"' AND o.ordermonth='"+month+"'";
             stmt = DBConn.dbConn().createStatement();
             rst = stmt.executeQuery(sql2);
             while(rst.next()){
@@ -77,14 +86,14 @@ public class Report {
         return monthlyIncome; 
     }
     
-    public HashMap getAllMonthIncome(){
-        String sql = "SELECT SUM(n.ordtotal),o.ordermonth FROM normalord_tbl n JOIN order_tbl o ON o.orderid=n.orderid Group by o.ordermonth ORDER BY o.ordermonth";
+    public HashMap getAllMonthIncome(int year){
+        String sql = "SELECT SUM(n.ordtotal),o.ordermonth FROM normalord_tbl n JOIN order_tbl o ON  o.orderid=n.orderid WHERE o.orderyear='"+year+"' Group by o.ordermonth ";
         
         table = new HashMap<String,String>();       
         int rowCount=0;
         try {
-            stmt = DBConn.dbConn().createStatement();
-            rst = stmt.executeQuery(sql);
+            
+            rst = new DBConn().selectQuery(sql);
             while(rst.next()){
                 if(rst.getInt(2)==1){
                     table.put("January" ,rst.getString(1));
@@ -123,6 +132,7 @@ public class Report {
                     table.put("December",rst.getString(1));
                 }
             }
+           
         } 
         catch (SQLException ex) {
             Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
@@ -144,6 +154,96 @@ public class Report {
         return rst;
     }
     
+    //select order year to select from drop down
+    public ArrayList selectDistinctYear(){
+        String sql = "SELECT DISTINCT ORDERYEAR FROM ORDER_TBL";
+        ArrayList list = new ArrayList();
+        ResultSet rst = null;
+        try {
+            rst = new DBConn().selectQuery(sql);
+            while(rst.next()){
+                list.add(rst.getString(1));
+            }
+           Collections.sort(list);
+        } 
+        catch (Exception e) {
+        }
+        return list;
+    }
+    
+    //Annual income report
+    
+    public Map<Integer,Double> getAnnualIncomeReport(){
+            String sql1 = "SELECT SUM(n.ordtotal),o.orderyear FROM normalord_tbl n JOIN order_tbl o ON n.orderid=o.orderid GROUP BY o.orderyear";
+            String sql2 = "SELECT SUM(s.ordTotal),o.orderyear FROM specialord_tbl s JOIN order_tbl o ON s.orderid=o.orderid GROUP BY o.orderyear";
+            Map<Integer,Double> sortList = null;
+             try 
+        
+        {
+            
+            rst = new DBConn().selectQuery(sql1);
+          
+            while(rst.next()){
+              String x =rst.getString(2);
+              Double y = rst.getDouble(1);
+               incomeReportTable.put(Integer.parseInt(rst.getString(2)),rst.getDouble(1));//add income and year to hashttable
+            }
+           
+            stmt = DBConn.dbConn().createStatement();
+            rst = stmt.executeQuery(sql2);
+            
+            while(rst.next()){
+                if(incomeReportTable.containsKey(rst.getString(2))){//check the key is exist
+                    Double total  =  incomeReportTable.get(rst.getInt(2));//if key exist get key and add current valus 
+                    total +=rst.getDouble(2) ;
+                    incomeReportTable.put(rst.getInt(2), total);//put total to map
+                    
+                }
+                else{
+                    incomeReportTable.put(rst.getInt(2),rst.getDouble(1));
+                }
+            }
+            sortList = new TreeMap<Integer,Double>(incomeReportTable);//sort the map using key
+            
+            
+        } catch (SQLException ex) {
+                 JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return sortList;
+    }
+    public int getSpecialorderCount(){
+     int sOrderCount= 0;
+     String sql2 = "select count(*) FROM specialord_tbl WHERE ordstate='P'";
+         try {    
+            rst = new DBConn().selectQuery(sql2);
+       
+            while(rst.next()){
+                sOrderCount = rst.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          return sOrderCount;             
+    }
+    
+    public int getNormalOrderCount(){
+     int nOrderCount=0;
+    
+            String sql1 = "select count(*) FROM normalord_tbl WHERE orderstate='P' ";
+        try {
+          
+            rst =new DBConn().selectQuery(sql1);
+            while(rst.next()){
+                nOrderCount = rst.getInt(1);
+            }
+            
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(Report.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+     
+                return nOrderCount;
+    }
    
     
     

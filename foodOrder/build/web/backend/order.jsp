@@ -130,12 +130,12 @@
                                                     <thead>
                                                         <tr>
 
-                                                            <th>OrderId</th>
+                                                            <th>Order Id</th>
                                                             <th>Category</th>
-                                                            <th>food</th>
+                                                            <th>Description</th>
                                                             <th>Quantity</th>
-                                                            <th>Extra</th>
                                                             <th>Deliver Date</th>
+                                                            <th>Customer Name</th>                                                            
                                                             <th>Address</th>
                                                             <th>Order date</th>
                                                             <th>Order time</th>

@@ -62,51 +62,52 @@
                                 </li>
                                 <li class=""><a href="#message" data-toggle="tab">Send Message</a>
                                 </li>
+                                <li class=""><a href="#records" data-toggle="tab">LogIn Records</a>
+                                </li>
                             </ul>
 
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="cusdetails">
                                     <h4>Details</h4>
-                                                  <div class="col-md-12">
-                  <!--   Kitchen Sink -->
-                    <div class="panel panel-default">
-                        
-                                            <div class="panel-body">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Name</th>
-                                                                <th>Address</th>
-                                                                <th>Telephone</th>
-                                                                <th>Email</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <%Customer cus = new Customer();
-                                                                ResultSet rst = cus.getCustomerDetails();
-                                                            %>
-                                                            <%while(rst.next()){ %>
-                                                            <tr>
-                                                                <td><%=rst.getString(1) %>&nbsp;<%=rst.getString(2) %></td>
-                                                                <td><%=rst.getString(3)%></td>
-                                                                <td><%=rst.getString(4)%></td>
-                                                                <td><%=rst.getString(5)%></td>    
-                                                            </tr>
-                                                            <% }%>
-                                                        </tbody>
-                                                    </table>
+                                    <div class="col-md-12">
+                          <!--   Kitchen Sink -->
+                                        <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Name</th>
+                                                                        <th>Address</th>
+                                                                        <th>Telephone</th>
+                                                                        <th>Email</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <%Customer cus = new Customer();
+                                                                        ResultSet rst = cus.getCustomerDetails();
+                                                                    %>
+                                                                    <%while(rst.next()){ %>
+                                                                    <tr>
+                                                                        <td><%=rst.getString(1) %>&nbsp;<%=rst.getString(2) %></td>
+                                                                        <td><%=rst.getString(3)%></td>
+                                                                        <td><%=rst.getString(4)%></td>
+                                                                        <td><%=rst.getString(5)%></td>    
+                                                                    </tr>
+                                                                    <% }%>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                 <!-- End  Kitchen Sink -->
                                             </div>
                                         </div>
-                                         <!-- End  Kitchen Sink -->
-                                    </div>
-                                                    </div>
                                 <div class="tab-pane fade" id="message">
                                     <h4>Special Order</h4>
                                 <div class="col-md-12">
                   <!--   Kitchen Sink -->
-                    <div class="panel panel-default">
+                                <div class="panel panel-default">
                         
                                 <div class="panel-body">
                                     <div class="col-md-6">
@@ -152,7 +153,41 @@
                                          <!-- End  Kitchen Sink -->
                                     </div>
                                 </div>
-                                
+                            <!--customer login records start -->
+                                  <div class="tab-pane fade " id="records">
+                                    <h4>Login Records</h4>
+                                    <div class="col-md-12">
+                          <!--   Kitchen Sink -->
+                                            <div class="panel panel-default">
+                                                  <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th></th>
+                                                                        <th>Name</th>
+                                                                        <th>Time</th>
+                                                                        <th>Date</th>
+                                                                        <th>IP</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                    <td>1</td>
+                                                                    <td>Kasun</td>
+                                                                    <td>12.00pm</td>
+                                                                    <td>2015/8/9</td>
+                                                                    <td>129.2.4.1</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>  
+                                            </div>
+                                                 <!-- End  Kitchen Sink -->
+                                            </div>
+                                        </div>
+                            <!--customer login records end -->
                                 
                             </div>
                         </div>

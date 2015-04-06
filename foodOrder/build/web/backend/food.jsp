@@ -82,7 +82,7 @@
                                     <form role="form" method="post" action="FoodServlet" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Food Code</label>
-                                            <input class="form-control" name="foodid" required/>
+                                            <input class="form-control" name="foodid" readonly="true" />
                                         </div>
                                         
                                         <div class="form-group">
