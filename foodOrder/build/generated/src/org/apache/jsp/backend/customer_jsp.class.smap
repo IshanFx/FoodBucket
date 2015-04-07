@@ -1,0 +1,23 @@
+SMAP
+customer_jsp.java
+JSP
+*S JSP
+*F
++ 0 customer.jsp
+backend/customer.jsp
++ 1 menu.jsp
+backend/menu.jsp
+*L
+1,44:51
+5#1,154:95
+44#0,44:248
+87,3:292
+89:295
+90:296,3
+91:299
+92:300,5
+93,3:305,3
+96:314
+97:315,3
+98,148:318
+*E

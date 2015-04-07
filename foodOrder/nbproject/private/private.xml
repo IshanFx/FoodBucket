@@ -6,10 +6,13 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/order.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/index.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/reportModel/Report.java</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/CustomerServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/js/plugins/morris/morris-data.js</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/cusAdminModel/CustomerBL.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/orderModel/NormalOrderBean.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/orderModel/SpecialOrderBean.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/annualincome.jsp</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/cusAdminModel/CustomerMailController.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/index.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/orderModel/SpecialOrderBL.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/customer.jsp</file>
@@ -18,11 +21,11 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/menu.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/monthincome.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/food.jsp</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/managecls/User.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/myres.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/slider.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/report.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/order.jsp</file>
-            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/managecls/DBConn.java</file>
         </group>
     </open-files>
 </project-private>

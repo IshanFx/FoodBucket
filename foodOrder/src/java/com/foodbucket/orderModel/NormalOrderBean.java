@@ -19,7 +19,7 @@ public class NormalOrderBean {
     private int orderId;
     private int orderYear;
     private int orderCusId;
-
+    private String orderFood;
    
     public void setOrderId(int orderId) {
         this.orderId = orderId;
@@ -91,6 +91,14 @@ public class NormalOrderBean {
 
     public void setOrderPrice(double orderPrice) {
         this.orderPrice = orderPrice;
+    }
+
+    public String getOrderFood() {
+        return orderFood;
+    }
+
+    public void setOrderFood(String orderFood) {
+        this.orderFood = orderFood;
     }
     
 }

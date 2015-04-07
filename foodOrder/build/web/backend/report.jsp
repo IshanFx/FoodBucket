@@ -1,3 +1,7 @@
+<%@page import="java.util.TimeZone"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="com.foodbucket.orderModel.NormalOrderBean"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
@@ -43,7 +47,10 @@
     <div id="wrapper">
         <!-- Navigation -->
     <%@include file="menu.jsp" %>
-  
+  <% Calendar calendar = Calendar.getInstance(TimeZone.getDefault()); 
+               int month= calendar.get(Calendar.MONTH) + 1;
+               int year = calendar.get(Calendar.YEAR);
+            %>
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
@@ -61,7 +68,7 @@
                                 </li>
                                 <li class=""><a href="#annual" data-toggle="tab">Annual Income</a>
                                 </li>
-                                <li class=""><a href="#sellingfood" data-toggle="tab">Best Selling Foods</a>
+                                <li class=""><a href="#sellingfood" data-toggle="tab">Best Orders</a>
                                 </li>
                             </ul>
 
@@ -117,33 +124,21 @@
                                         <div class="panel-body">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered table-hover">
+                                                        <% Map<Integer,Double> annualIncome = report1.getAnnualIncomeReport(); 
+                                                        %>
                                                         <thead>
                                                             <tr>
-                                                                <th>#</th>
-                                                                <th>First Name</th>
-                                                                <th>Last Name</th>
-                                                                <th>Username</th>
+                                                                <th>Year </th>
+                                                                <th>Income</th>                                                                
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            <% for(Map.Entry<Integer,Double> incomeList : annualIncome.entrySet() ){ %>
                                                             <tr>
-                                                                <td>1</td>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
+                                                                <td> <%=incomeList.getKey() %> </td>
+                                                                <td><%=incomeList.getValue() %> </td>    
                                                             </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>Jacob</td>
-                                                                <td>Thornton</td>
-                                                                <td>@fat</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
+                                                           <% } %>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -170,38 +165,70 @@
                                 <!-- Best Selling Food start-->
                                 <div class="tab-pane fade" id="sellingfood">
                                 <h4>Best Selling Foods</h4>
-                                    <div class="col-md-12">
-                                        <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered table-hover">
-                                                        <thead>
-                                                            <% Report report = new Report(); %>
-                                                            <% ResultSet rst  = report.getBestSellingItems(); %>
-                                                            <tr>
-                                                                <th>Food Name</th>
-                                                                <th>Category</th>
-                                                                <th>Quantity</th>
-                                                                <th>Total</th>
-                                                                <th>No Of Orders</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <% while(rst.next()){ %>
-                                                            <tr>
-                                                                <td><%=rst.getString(1) %> </td>
-                                                                <td><%=rst.getString(2) %></td>
-                                                                <td><%=rst.getString(3) %></td>
-                                                                <td><%=rst.getString(4) %></td>
-                                                                <td><%=rst.getString(5) %></td>
-                                                            </tr>
-                                                            <% } %>
-                                                        </tbody>
-                                                    </table>
+                                              <div class="col-lg-6">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>Top 10 order Of Month</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered table-hover table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Name</th>
+                                                                        <th>Quantity</th>
+                                                                        <th>Total income</th>   
+                                                                    </tr>   
+                                                                </thead>
+                                                                <tbody>
+                                                                    <% ArrayList<NormalOrderBean> monthTopOrder= report1.getTopOrderMonth(month,year); %>
+                                                                    <% for(NormalOrderBean foodMonth :monthTopOrder ){ %>
+                                                                    <tr>
+                                                                        <td> <%=foodMonth.getOrderFood()%> </td>
+                                                                        <td><%=foodMonth.getOrderQuantity() %></td>
+                                                                        <td><%=foodMonth.getOrderPrice() %></td>
+                                                                    </tr>   
+                                                                      <% } %>          
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                            
+                                            <div class="col-lg-6">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>Top 10 order Of Year</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered table-hover table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Name</th>
+                                                                        <th>Quantity</th>
+                                                                        <th>Total income</th>   
+                                                                    </tr>   
+                                                                </thead>
+                                                                <tbody>
+                                                                    <% ArrayList<NormalOrderBean> yearTopOrder= report1.getTopOrderYear(year); %>
+                                                                    <% for(NormalOrderBean foodYear : yearTopOrder ){ %>
+                                                                    <tr>
+                                                                        <td><%=foodYear.getOrderFood()%> </td>
+                                                                        <td><%=foodYear.getOrderQuantity() %></td>
+                                                                        <td><%=foodYear.getOrderPrice() %></td>
+                                                                    </tr>   
+                                                                      <% } %>              
+                                                                </tbody>
+                                                            </table>
+                                                        </div>   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                
+                                
                                 </div>
                                 <!-- Best Selling Food End--> 
                             </div>

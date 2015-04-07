@@ -112,32 +112,33 @@
                                 <div class="panel-body">
                                     <div class="col-md-6">
                                     <h3>Send Email</h3>
-                                    <form role="form" action="">
+                                    <form role="form" action="CustomerMailController" method="post">
                                         <label>To</label>
                                         <div class="form-group">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="" name="allcusmail" onclick="checkSelect()" id="ss"/>Send To all Customers
+                                                    <input type="checkbox"   name="allcusmail" id="allCustomerSend"/>Send To all Customers
                                                 </label>
                                             </div>
                                         </div>   
                                         
                                         
-                                        <script>function checkSelect(){ if(document.getElementById('ss').checked){ </script>
+                                        
                                         <div class="form-group input-group" hidden>
                                             <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Email" >
+                                            <input type="text" class="form-control" placeholder="Email" id="emailTo" name="mailAdd"  >
                                         </div>
-                                        <script> }}</script>
+                                      
                                         
-                                        
-                                        <div class="form-group">
-                                            <label>Subject</label>
-                                            <input class="form-control" placeholder="Topic" />
+                                        <label>Topic</label>
+                                        <div class="form-group input-group">
+                                            
+                                            <span class="input-group-addon ">+</span>
+                                            <input type="text" class="form-control " placeholder="Topic" name="emailSubject"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" rows="3" name="emailBody"></textarea>
                                         </div>
                                         <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;Send&nbsp;&nbsp;&nbsp;&nbsp; </button> 
                                         
@@ -228,7 +229,16 @@
     <script src="js/plugins/flot/jquery.flot.resize.js"></script>
     <script src="js/plugins/flot/jquery.flot.pie.js"></script>
     <script src="js/plugins/flot/flot-data.js"></script>
-
+    <script>
+        $('#allCustomerSend').click(function(){
+           if($('#allCustomerSend').prop('checked')){
+               $('#emailTo').prop('readonly',true);
+           }
+           else{
+               $('#emailTo').prop('readonly',false)
+           }
+        });
+    </script>
 </body>
 
 </html>

@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Level;
@@ -184,9 +185,9 @@ public class Report {
             rst = new DBConn().selectQuery(sql1);
           
             while(rst.next()){
-              String x =rst.getString(2);
+              Integer x =rst.getInt(2);
               Double y = rst.getDouble(1);
-               incomeReportTable.put(Integer.parseInt(rst.getString(2)),rst.getDouble(1));//add income and year to hashttable
+               incomeReportTable.put(x,y);//add income and year to hashttable
             }
            
             stmt = DBConn.dbConn().createStatement();
@@ -203,6 +204,7 @@ public class Report {
                     incomeReportTable.put(rst.getInt(2),rst.getDouble(1));
                 }
             }
+            
             sortList = new TreeMap<Integer,Double>(incomeReportTable);//sort the map using key
             
             
@@ -245,6 +247,51 @@ public class Report {
                 return nOrderCount;
     }
    
+    
+    public ArrayList getTopOrderMonth(int month,int year){
+        ArrayList list = new ArrayList();
+        ResultSet rst = null;
+        
+        String sql = "SELECT f.foodname,SUM(no.ordquantity),SUM(no.ordtotal) FROM normalord_tbl no JOIN food_tbl f ON f.foodid=no.foodid JOIN order_tbl o ON o.orderid=no.orderid  WHERE o.ordermonth='"+month+"' AND o.orderyear='"+year+"' GROUP BY f.foodname ORDER BY SUM(no.ordquantity) DESC LIMIT 10";
+        try {
+            rst = new DBConn().selectQuery(sql);
+            while (rst.next()) {
+                NormalOrderBean norder = new NormalOrderBean();
+                norder.setOrderFood(rst.getString(1));
+                norder.setOrderQuantity(rst.getInt(2));
+                norder.setOrderPrice(rst.getDouble(3));
+                list.add(norder);
+            }
+        } 
+        catch (Exception e) {
+            
+        }
+        
+        return list;
+    }
+    public ArrayList getTopOrderYear(int year){
+        ArrayList list = new ArrayList();
+        ResultSet rst = null;
+        
+        String sql = "SELECT f.foodname,SUM(no.ordquantity),SUM(no.ordtotal) FROM normalord_tbl no JOIN food_tbl f ON f.foodid=no.foodid JOIN order_tbl o ON o.orderid=no.orderid  WHERE o.orderyear='"+year+"' GROUP BY f.foodname ORDER BY SUM(no.ordquantity) DESC LIMIT 10";
+        try {
+            rst = new DBConn().selectQuery(sql);
+            while (rst.next()) {
+                NormalOrderBean norder = new NormalOrderBean();
+                norder.setOrderFood(rst.getString(1));
+                norder.setOrderQuantity(rst.getInt(2));
+                norder.setOrderPrice(rst.getDouble(3));
+                list.add(norder);
+            }
+        } 
+        catch (Exception e) {
+            
+        }
+        
+        return list;
+    }
+    
+    
     
     
     
