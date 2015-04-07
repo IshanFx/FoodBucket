@@ -66,7 +66,7 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#month" data-toggle="tab">Monthly Income</a>
                                 </li>
-                                <li class=""><a href="#annual" data-toggle="tab">Annual Income</a>
+                                <li class="" id="annualtab"><a href="#annual" data-toggle="tab">Annual Income</a>
                                 </li>
                                 <li class=""><a href="#sellingfood" data-toggle="tab">Best Orders</a>
                                 </li>
@@ -119,33 +119,8 @@
                                 <!-- Annual income tab start-->
                                 <div class="tab-pane fade" id="annual">
                                 <h4>Annual Income</h4>
-                                    <div class="col-md-12">
-                                    <div class="panel panel-default">
-                                        <div class="panel-body">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered table-hover">
-                                                        <% Map<Integer,Double> annualIncome = report1.getAnnualIncomeReport(); 
-                                                        %>
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Year </th>
-                                                                <th>Income</th>                                                                
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <% for(Map.Entry<Integer,Double> incomeList : annualIncome.entrySet() ){ %>
-                                                            <tr>
-                                                                <td> <%=incomeList.getKey() %> </td>
-                                                                <td><%=incomeList.getValue() %> </td>    
-                                                            </tr>
-                                                           <% } %>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <input id="annualincometab" value="click" name="buttion" type="button">
+                                    
+                              
                                     <!--Annual Income Chart -->
                                     <div class="col-lg-12">
                                         <div class="panel panel-green">
@@ -153,7 +128,7 @@
                                                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i>Annual Income</h3>
                                             </div>
                                             <div class="panel-body">
-                                                <div id="morris-bar-chart2"></div>
+                                                <div id="annualIncomechart"></div>
                                                 
                                             </div>
                                         </div>
@@ -274,7 +249,13 @@
            
           });
     </script>
-    
+    <script>
+        $('#annualtab').click(function(){
+          
+            $('#annualIncomechart').load('annualincome.jsp');
+            
+        });
+    </script>
     
     <script>     
        function chart3(){

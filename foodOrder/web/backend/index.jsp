@@ -1,3 +1,4 @@
+<%@page import="com.foodbucket.foodModel.FoodBL"%>
 <%@page import="java.util.TimeZone"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Calendar"%>
@@ -185,7 +186,7 @@
                     </div>
                     
                     
-                    
+                                        <% FoodBL food = new FoodBL(); %>
                     <div class="col-lg-4 col-md-4">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
@@ -194,7 +195,7 @@
                                         <i class="fa fa-birthday-cake fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
+                                        <div class="huge"><%=food.getCountFood() %></div>
                                         <div>Foods</div>
                                     </div>
                                 </div>

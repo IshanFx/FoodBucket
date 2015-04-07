@@ -25,11 +25,30 @@
     
     </head>
     <body>
-        <% Report report = new Report();
-           Map<Integer,Double> chart = report.getAnnualIncomeReport();
-           
-        %>
-         <div id="morris-bar-chart2"></div>
+        <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                <% Report report = new Report();
+                    Map<Integer,Double> mapList =  report.getAnnualIncomeReport(); %>
+                <thead>
+                <tr>
+                    <th>Year </th>
+                    <th>Income</th>                                                                
+                </tr>
+                </thead>
+                <tbody>
+                <% for(Map.Entry<Integer,Double> incomeList : mapList.entrySet() ){ %>
+                <tr>
+                    <td><%=incomeList.getKey() %> </td>
+                    <td><%=incomeList.getValue() %></td>                                                                
+                </tr>
+                <% } %>
+                </tbody>
+                </table>
+        </div>
+        
+        <div id="morris-bar-chart2">
+            
+        </div>
          
          
     <script>
@@ -38,12 +57,12 @@
            Morris.Bar({
                 element: 'morris-bar-chart2',
                 data: [
-                <% for(Map.Entry<Integer,Double> chartvalues:chart.entrySet()){    %>                       
+                <% for(Map.Entry<Integer,Double> incomeList : mapList.entrySet() ){ %>                   
                 {
-                    device: '<%=chartvalues.getKey().toString() %>',
-                    geekbench: <%=chartvalues.getValue().toString() %>
+                    device: '<%=incomeList.getKey().toString() %>',
+                    geekbench: <%=incomeList.getValue() %>
                 }, 
-                <% } %>
+                 <% } %>       
 
                 ],
                 xkey: 'device',
@@ -59,14 +78,6 @@
         
     </script>
     
-    <script>
-        function al(){
-            
-            alert('hello');  
-        
-        }
-        al();
-        
-    </script>
+    
     </body>
 </html>

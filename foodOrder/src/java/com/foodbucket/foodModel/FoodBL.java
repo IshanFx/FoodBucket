@@ -86,11 +86,30 @@ public class FoodBL extends FoodBean implements FoodManage {
         String sql = "SELECT COUNT(*) FROM food_tbl";
         try {
            rst = new DBConn().selectQuery(sql);
-           count = rst.getInt(1);
+           while(rst.next()){
+                count = rst.getInt(1);
+           }
+           
         } 
         catch (Exception e) {
         }
         return count;
+    }
+    public int getFoodMaxID(){
+    int maxId = 0;
+        ResultSet rst= null;
+        String sql = "SELECT MAX(foodid) FROM food_tbl";
+        try {
+           rst = new DBConn().selectQuery(sql);
+           while(rst.next()){
+                maxId = rst.getInt(1);
+           }
+           
+        } 
+        catch (Exception e) {
+        }
+        return maxId;
+    
     }
     
    

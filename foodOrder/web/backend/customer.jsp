@@ -112,7 +112,7 @@
                                 <div class="panel-body">
                                     <div class="col-md-6">
                                     <h3>Send Email</h3>
-                                    <form role="form" action="CustomerMailController" method="post">
+                                    <form role="form" id="customMailForm" action="CustomerMailController" method="POST">
                                         <label>To</label>
                                         <div class="form-group">
                                             <div class="checkbox">
@@ -140,7 +140,7 @@
                                             <label>Description</label>
                                             <textarea class="form-control" rows="3" name="emailBody"></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;Send&nbsp;&nbsp;&nbsp;&nbsp; </button> 
+                                        <button type="submit" class="btn btn-primary" id="sendMailBtn" onsubmit="sending()">&nbsp;&nbsp;&nbsp;&nbsp;Send&nbsp;&nbsp;&nbsp;&nbsp; </button> 
                                         
                                         <button type="reset" class="btn btn-danger">&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;</button>
 
@@ -209,8 +209,11 @@
         <!-- /#page-wrapper -->
 
     </div>
+    
     <!-- /#wrapper -->
-
+    <script>
+       
+    </script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 

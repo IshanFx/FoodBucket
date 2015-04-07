@@ -38,7 +38,7 @@ public class Report {
     private double specialOrder;
     private double monthlyIncome;
     HashMap<String,String> table;
-    HashMap<Integer,Double> incomeReportTable;
+    
     
     public double getAnnualIncome(int year){
         
@@ -90,7 +90,20 @@ public class Report {
     public HashMap getAllMonthIncome(int year){
         String sql = "SELECT SUM(n.ordtotal),o.ordermonth FROM normalord_tbl n JOIN order_tbl o ON  o.orderid=n.orderid WHERE o.orderyear='"+year+"' Group by o.ordermonth ";
         
-        table = new HashMap<String,String>();       
+        table = new HashMap<String,String>(); 
+        table.put("January" ,"0");
+        table.put("February","0");
+        table.put("March","0");
+        table.put("April","0");
+        table.put("May","0");
+        table.put("June","0");
+        table.put("July","0"); 
+        table.put("August","0");
+        table.put("September","0");
+        table.put("October","0");
+        table.put("November","0");
+        table.put("December","0");
+        
         int rowCount=0;
         try {
             
@@ -175,41 +188,43 @@ public class Report {
     //Annual income report
     
     public Map<Integer,Double> getAnnualIncomeReport(){
-            String sql1 = "SELECT SUM(n.ordtotal),o.orderyear FROM normalord_tbl n JOIN order_tbl o ON n.orderid=o.orderid GROUP BY o.orderyear";
-            String sql2 = "SELECT SUM(s.ordTotal),o.orderyear FROM specialord_tbl s JOIN order_tbl o ON s.orderid=o.orderid GROUP BY o.orderyear";
-            Map<Integer,Double> sortList = null;
-             try 
-        
-        {
+            String sql1 = "SELECT o.orderyear,SUM(n.ordtotal) FROM normalord_tbl n JOIN order_tbl o ON n.orderid=o.orderid GROUP BY o.orderyear";
+            String sql2 = "SELECT o.orderyear,SUM(s.ordTotal) FROM specialord_tbl s JOIN order_tbl o ON s.orderid=o.orderid GROUP BY o.orderyear";
             
-            rst = new DBConn().selectQuery(sql1);
+            HashMap<Integer,Double> incomeReportTable = new HashMap<Integer, Double>();
+            Map<Integer,Double> sortList = null;
+             try         
+            {
+            
+            ResultSet rst = new DBConn().selectQuery(sql1);
           
             while(rst.next()){
-              Integer x =rst.getInt(2);
-              Double y = rst.getDouble(1);
+              Integer x =rst.getInt(1);
+              Double y = rst.getDouble(2);
                incomeReportTable.put(x,y);//add income and year to hashttable
             }
            
-            stmt = DBConn.dbConn().createStatement();
-            rst = stmt.executeQuery(sql2);
+            rst = new DBConn().selectQuery(sql2);
+            
             
             while(rst.next()){
-                if(incomeReportTable.containsKey(rst.getString(2))){//check the key is exist
-                    Double total  =  incomeReportTable.get(rst.getInt(2));//if key exist get key and add current valus 
+                if(incomeReportTable.containsKey(rst.getInt(1))){//check the key is exist
+                    Double total  =  incomeReportTable.get(rst.getInt(1));//if key exist get key and add current valus 
                     total +=rst.getDouble(2) ;
-                    incomeReportTable.put(rst.getInt(2), total);//put total to map
+                    incomeReportTable.put(rst.getInt(1), total);//put total to map
                     
                 }
                 else{
-                    incomeReportTable.put(rst.getInt(2),rst.getDouble(1));
+                    incomeReportTable.put(rst.getInt(1),rst.getDouble(2));
                 }
             }
             
             sortList = new TreeMap<Integer,Double>(incomeReportTable);//sort the map using key
             
             
-        } catch (SQLException ex) {
-                 JOptionPane.showMessageDialog(null, ex.getMessage());
+        } 
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         return sortList;
     }

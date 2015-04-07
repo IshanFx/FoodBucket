@@ -36,10 +36,7 @@ public class CustomerMailController extends HttpServlet {
         String subject = request.getParameter("emailSubject");
         String body = request.getParameter("emailBody");
         CustomerBL cusMail = new CustomerBL();
-        out.println(mail);
-        out.println(type);
-        out.println(subject);
-        out.println(body);
+        
         
         if(type==null){
              cusMail.sendEmail(mail, subject, body);

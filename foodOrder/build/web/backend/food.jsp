@@ -38,7 +38,7 @@
 
         <!-- Navigation -->
         <%@include file="menu.jsp" %>
-
+        <% FoodBL food = new FoodBL(); %>
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -82,7 +82,7 @@
                                     <form role="form" method="post" action="FoodServlet" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Food Code</label>
-                                            <input class="form-control" name="foodid" readonly="true" />
+                                            <input class="form-control" name="foodid" readonly="true" value="<%=food.getFoodMaxID()+1 %>" />
                                         </div>
                                         
                                         <div class="form-group">

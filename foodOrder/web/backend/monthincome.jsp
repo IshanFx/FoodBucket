@@ -4,6 +4,7 @@
     Author     : IshanFX
 --%>
 
+<%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="com.foodbucket.reportModel.Report"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -74,6 +75,69 @@
        }
        chart2();
     </script>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Year </th>
+                    <th>Income</th>                                                                
+                </tr>
+                
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>January</td>
+                    <td><%=table.get("January") %></td>
+                </tr>
+                <tr>
+                    <td>February</td>
+                    <td><%=table.get("February") %></td>
+                </tr>
+                <tr>
+                    <td>March</td>
+                    <td><%=table.get("March") %></td>
+                </tr>
+                <tr>
+                    <td>April</td>
+                    <td><%=table.get("April") %></td>
+                </tr>
+                <tr>
+                    <td>May</td>
+                    <td><%=table.get("May") %></td>
+                </tr>
+                <tr>
+                    <td>June</td>
+                    <td><%=table.get("June") %></td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td><%=table.get("July") %></td>
+                </tr>
+                <tr>
+                    <td>August</td>
+                    <td><%=table.get("August") %></td>
+                </tr>
+                <tr>
+                    <td>September</td>
+                    <td><%=table.get("September") %></td>
+                </tr>
+                <tr>
+                    <td>October</td>
+                    <td><%=table.get("October") %></td>
+                </tr>
+                <tr>
+                    <td>November</td>
+                    <td><%=table.get("November") %></td>
+                </tr>
+                <tr>
+                    <td>December</td>
+                    <td><%=table.get("December") %></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
     
     <div id="morris-bar-chart1">
 
