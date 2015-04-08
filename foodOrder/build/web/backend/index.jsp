@@ -1,3 +1,7 @@
+\
+<%@page import="com.restfb.types.*"%>
+<%@page import="com.restfb.FacebookClient"%>
+<%@page import="com.restfb.DefaultFacebookClient"%>
 <%@page import="com.foodbucket.foodModel.FoodBL"%>
 <%@page import="java.util.TimeZone"%>
 <%@page import="java.util.Calendar"%>
@@ -234,6 +238,36 @@
                             </a>
                         </div>
                     </div>
+                </div>
+                <%
+                    FacebookClient facebookClient = new DefaultFacebookClient("CAACEdEose0cBAESjVtZBGVo0WuZAIk1d4vLT0hysyA46Hn7Lv1YlZAFW1anEYpeRGF2ewlk92bZBgHSFrtQoW7kBdcsmBDNfYAFE3NOaSVbUUAvKzeBknr9L00JG0obcVZC0CUo1VdfLniwSsFT4rz4WK0E9MyAhAqX2Xh6SHqUr5Fbt7LZBD7JcRsTCPjRrCciK78l7ZCJoaPCTlhAzKWw");
+                    User user = facebookClient.fetchObject("me",User.class);
+                    Page pages = facebookClient.fetchObject("177685785756522",Page.class );
+                %>
+                                        
+                <div class="row">
+                     <div class="col-lg-4 col-md-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-thumbs-up fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><%=pages.getLikes()  %></div>
+                                        <div>Likes</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>   
                 </div>
                 <!-- /.row -->
                 <hr/>

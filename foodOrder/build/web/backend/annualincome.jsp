@@ -46,23 +46,53 @@
                 </table>
         </div>
         
-        <div id="morris-bar-chart2">
+       <!-- <div id="morris-bar-chart2">
             
+        </div> -->
+        <div id="morris-line-chart">
+
         </div>
          
-         
     <script>
-            
-       function chart3(){
+        function linechart(){
+             Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'morris-line-chart',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [
+        <% for(Map.Entry<Integer,Double> incomeList2 : mapList.entrySet() ){ %>   
+                {
+            d: '<%=incomeList2.getKey().toString() %>',
+            visits: <%=incomeList2.getValue() %>
+        },
+                <% } %>
+            ],
+        // The name of the data record attribute that contains x-visitss.
+        xkey: 'd',
+        // A list of names of data record attributes that contain y-visitss.
+        ykeys: ['visits'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Visits'],
+        // Disables line smoothing
+        smooth: false,
+        resize: true
+    });
+        }
+        linechart();  
+     
+      
+     /* function chart3(){
            Morris.Bar({
                 element: 'morris-bar-chart2',
                 data: [
-                <% for(Map.Entry<Integer,Double> incomeList : mapList.entrySet() ){ %>                   
+               <!% for(Map.Entry<Integer,Double> incomeList : mapList.entrySet() ){ %>                   
                 {
-                    device: '<%=incomeList.getKey().toString() %>',
-                    geekbench: <%=incomeList.getValue() %>
+                    device: '<!%=incomeList.getKey().toString() %>',
+                    geekbench: <!%=incomeList.getValue() %>
                 }, 
-                 <% } %>       
+                 <!% } %>       
 
                 ],
                 xkey: 'device',
@@ -73,8 +103,8 @@
                 hideHover: 'auto',
                 resize: true
             });
-       }
-       chart3();
+       } */
+      
         
     </script>
     

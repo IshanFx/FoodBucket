@@ -5,10 +5,14 @@
  */
 package com.foodbucket.cusAdminModel;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author IshanFX
  */
+
 public class CustomerMailController extends HttpServlet {
 
   
@@ -36,10 +41,15 @@ public class CustomerMailController extends HttpServlet {
         String subject = request.getParameter("emailSubject");
         String body = request.getParameter("emailBody");
         CustomerBL cusMail = new CustomerBL();
-        
+        //boolean chk = false;
+      //  Map<String,Object> map = new HashMap<String,Object>();
+       // map.put("mailAdd", mail);
         
         if(type==null){
              cusMail.sendEmail(mail, subject, body);
+           //  map.put("chk", chk);
+           //  response.setContentType("application/json");
+            // response.getWriter().write(new Gson().toJson(map));
              response.sendRedirect("customer.jsp");
         }
         else{

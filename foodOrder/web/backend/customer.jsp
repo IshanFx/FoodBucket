@@ -112,7 +112,8 @@
                                 <div class="panel-body">
                                     <div class="col-md-6">
                                     <h3>Send Email</h3>
-                                    <form role="form" id="customMailForm" action="CustomerMailController" method="POST">
+                                    
+                                    <form role="form" id="customMailForm" >
                                         <label>To</label>
                                         <div class="form-group">
                                             <div class="checkbox">
@@ -140,7 +141,7 @@
                                             <label>Description</label>
                                             <textarea class="form-control" rows="3" name="emailBody"></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-primary" id="sendMailBtn" onsubmit="sending()">&nbsp;&nbsp;&nbsp;&nbsp;Send&nbsp;&nbsp;&nbsp;&nbsp; </button> 
+                                        <button type="submit" class="btn btn-primary" id="sendMailBtn">&nbsp;&nbsp;&nbsp;&nbsp;Send&nbsp;&nbsp;&nbsp;&nbsp; </button> 
                                         
                                         <button type="reset" class="btn btn-danger">&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;</button>
 
@@ -211,27 +212,42 @@
     </div>
     
     <!-- /#wrapper -->
-    <script>
-       
-    </script>
+    
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
-    <!-- Flot Charts JavaScript -->
-    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="js/plugins/flot/flot-data.js"></script>
+    <script>
+            
+             $('#customMailForm').submit(function(){
+                var mail = $('#emailTo').val();
+                alert(mail);
+                $.ajax({
+                    url: 'CustomerMailController', 
+                    type: 'POST',
+                    dataType: 'json',
+                    data: $('#customMailForm').serialize(),
+                    success: function (data) {
+                        if(data.chk){
+                            alert('success');
+                        }
+                        else
+                        {
+                            alert('asdsdad');
+                        }
+                    }
+                   
+                    
+  
+                });
+                return false;
+            });
+ 
+      
+    </script>
+   
+    
     <script>
         $('#allCustomerSend').click(function(){
            if($('#allCustomerSend').prop('checked')){
