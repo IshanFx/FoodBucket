@@ -63,7 +63,7 @@
                             <ul class="nav nav-tabs ">
                                 <li class="active"><a href="#normal" data-toggle="tab">Normal Order</a>
                                 </li>
-                                <li class=""><a href="#special" data-toggle="tab">Special Order</a>
+                                <li class="" id="specialordertab"><a href="#special" data-toggle="tab">Special Order</a>
                                 </li>
                                 <li class=""><a href="#delivernormal" data-toggle="tab">Delivered Normal Order</a>
                                 </li>
@@ -125,49 +125,10 @@
                                 <h4>Special Order</h4>
                                     <div class="col-md-12">
                                         <div class="panel panel-default">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped table-bordered table-hover">
-                                                    <thead>
-                                                        <tr>
-
-                                                            <th>Order Id</th>
-                                                            <th>Category</th>
-                                                            <th>Description</th>
-                                                            <th>Quantity</th>
-                                                            <th>Deliver Date</th>
-                                                            <th>Customer Name</th>                                                            
-                                                            <th>Address</th>
-                                                            <th>Order date</th>
-                                                            <th>Order time</th>
-                                                            <th>State</th>
-                                                            <th>Total</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <% SpecialOrderBL specialo = new SpecialOrderBL(); %>
-                                                        <% ResultSet rstso = specialo.getOrderDetails(); %>
-                                                        <% while(rstso.next()){ %>
-                                                        <tr>
-                                                            <td><%=rstso.getString(1)%></td>
-                                                            <td><%=rstso.getString(2)%></td>
-                                                            <td><%=rstso.getString(3)%></td>
-                                                            <td><%=rstso.getString(4)%></td>
-                                                            <td><%=rstso.getString(5)%></td>
-                                                            <td><%=rstso.getString(6)%></td>
-                                                            <td><%=rstso.getString(7)%></td>
-                                                            <td><%=rstso.getString(8)%><%=rstso.getString(9)%><%=rstso.getString(10)%></td>
-                                                            <td><%=rstso.getString(11)%></td>
-                                                            <td><%=rstso.getString(12)%></td>
-                                                            <td><%=rstso.getString(13)%></td>
-                                                            <td><a data-toggle="modal" class="btn btn-info col-md-12 changestatbtn" onclick="SpecialOrderPriceAdd(<%=rstso.getString(1) %>)">Add Price</a></td>
-                                                            <td><a data-toggle="modal" class="btn btn-success col-md-12 changestatbtn" onclick="specialOrderChange(<%=rstso.getString(1) %>)">Deliver</a></td>
-
-                                                        </tr>
-                                                        <% } %>
-                                                    </tbody>
-                                                </table>
+                                            <div id="specialordertable">
+                                                
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -249,25 +210,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <% 
-                                                        
-                                                        ResultSet soDeliver = specialo.getDeliverOrderDetails();
-                                                        %>
-                                                        <% while(soDeliver.next()) {%>
-                                                        <tr>
-                                                            <td><%=soDeliver.getString(1) %></td>
-                                                            <td><%=soDeliver.getString(2) %></td>
-                                                            <td><%=soDeliver.getString(3) %></td>
-                                                            <td><%=soDeliver.getString(4) %></td>
-                                                            <td><%=soDeliver.getString(5) %></td>
-                                                            <td><%=soDeliver.getString(6) %></td>
-                                                            <td><%=soDeliver.getString(7) %></td>  
-                                                            <td><%=soDeliver.getString(8) %><%=soDeliver.getString(9) %><%=soDeliver.getString(10) %></td>  
-                                                            <td><%=soDeliver.getString(11) %></td>  
-                                                            <td><%=soDeliver.getString(12) %></td>  
                                                             
-                                                        </tr>
-                                                        <% } %>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -295,15 +238,7 @@
                $(".changestatbtn").attr("href","#normalOrderChange"); 
            }
            
-           function specialOrderChange(orderid){
-               $(".changestatbtn").attr("href","#specialOrderChange"); 
-               $("#specialFoodid").val(orderid);
-           }
            
-            function SpecialOrderPriceAdd(orderid) {
-                $("#specialFoodPriceChangeId").val(orderid);
-                $(".changestatbtn").attr("href","#specialOrderPriceChange");
-            }
         </script>
         <!-- Functions to pass valus to model End-->
         
@@ -333,60 +268,7 @@
                 <!-- orderChangeModel verify need to change end --> 
        
        
-                <!-- specialChangeModel -->        
-                    <div class="modal fade " id="specialOrderChange" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <form action="OrderServlet" method="get">
-                                <div class="modal-content col-md-6 col-md-offset-4 alert alert-danger">
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <div class=" fa fa-2x fa-check">
-                                                <strong>Are You sure</strong> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                        <input type="hidden" id="specialFoodid" name="specialFood">
-                                    <div class="modal-footer">
-                                        <input type="submit" value="Yes" class="btn btn-success">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                                    </div>         
-                                </div>
-                            </form>
-                        </div>
-                    </div>    
-                <!-- specialChangeModel --> 
-            
-            
-                <!--Special order price add model -->    
-                    <div class="modal fade " id="specialOrderPriceChange" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <form action="FoodModifyServlet" method="POST">
-                                    <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                      <h4 class="modal-title">Change Price</h4>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <input type="hidden" id="specialFoodPriceChangeId" name="modiSpecialId">
-                                            <label>Price</label>
-
-                                            <input type="text" class="form-control" name="modiSpecialPrice" required> 
-                                        </div>
-
-                                    </div>
-                                    <div class="modal-footer">
-
-                                      <input type="submit" class="btn btn-primary" value="Modify" id="modifyfood">
-                                      <input type="reset" class="btn btn-warning" data-dismiss="modal" value="Clear">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>       
-        <!--Special order price add model -->    
-        <!-- /.container-fluid -->
+                 <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
 
@@ -397,6 +279,12 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+    <script>
+        $('#specialordertab').click(function(){
+           $('#specialordertable').load('specialorder.jsp');
+        });
+    </script>
+    
     <!-- Morris Charts Java Script -->
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>

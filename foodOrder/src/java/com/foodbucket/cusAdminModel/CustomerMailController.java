@@ -40,28 +40,36 @@ public class CustomerMailController extends HttpServlet {
         String mail = request.getParameter("mailAdd");
         String subject = request.getParameter("emailSubject");
         String body = request.getParameter("emailBody");
+       
         CustomerBL cusMail = new CustomerBL();
-        //boolean chk = false;
-      //  Map<String,Object> map = new HashMap<String,Object>();
-       // map.put("mailAdd", mail);
         
+        boolean chk = false;
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("mailAdd", mail);
+        //response.setContentType("application/json");
+       // response.setCharacterEncoding("UTF-8");
+       
         if(type==null){
-             cusMail.sendEmail(mail, subject, body);
-           //  map.put("chk", chk);
-           //  response.setContentType("application/json");
-            // response.getWriter().write(new Gson().toJson(map));
-             response.sendRedirect("customer.jsp");
+            out.println("success");
+            cusMail.sendEmail(mail, subject, body);
+            chk = true;
+            //response.sendRedirect("customer.jsp");
         }
         else{
+            out.println("success");
             mail ="toAll";
             cusMail.sendEmail(mail, subject, body);
-            response.sendRedirect("customer.jsp");
+         //   response.sendRedirect("email.jsp");
         }
+        
+        // request.setAttribute("as",chk);
+       // map.put("checking", chk);
+        //response.getWriter().write(new Gson().toJson(map));
         }
         catch(Exception ex){
            out.println(ex);
         }
-        
+         
        
         
     }

@@ -28,6 +28,10 @@
         <servlet-name>CustomerMailController</servlet-name>
         <servlet-class>com.foodbucket.cusAdminModel.CustomerMailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FoodPriceAddServlet</servlet-name>
+        <servlet-class>com.food.adminservlet.FoodPriceAddServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FoodServlet</servlet-name>
         <url-pattern>/backend/FoodServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>CustomerMailController</servlet-name>
         <url-pattern>/backend/CustomerMailController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FoodPriceAddServlet</servlet-name>
+        <url-pattern>/backend/FoodPriceAddServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -54,13 +54,13 @@
                        <div class="col-md-12 col-sm-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Tabs
+                            Customer Management
                         </div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#cusdetails" data-toggle="tab">Details</a>
                                 </li>
-                                <li class=""><a href="#message" data-toggle="tab">Send Message</a>
+                                <li class="" id="emailtab"><a href="#message" data-toggle="tab">Send Message</a>
                                 </li>
                                 <li class=""><a href="#records" data-toggle="tab">LogIn Records</a>
                                 </li>
@@ -104,7 +104,7 @@
                                             </div>
                                         </div>
                                 <div class="tab-pane fade" id="message">
-                                    <h4>Special Order</h4>
+                                    <h4>Mail</h4>
                                 <div class="col-md-12">
                   <!--   Kitchen Sink -->
                                 <div class="panel panel-default">
@@ -112,40 +112,10 @@
                                 <div class="panel-body">
                                     <div class="col-md-6">
                                     <h3>Send Email</h3>
+                                    <div id="mailformload">
+                                        
+                                    </div>
                                     
-                                    <form role="form" id="customMailForm" >
-                                        <label>To</label>
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"   name="allcusmail" id="allCustomerSend"/>Send To all Customers
-                                                </label>
-                                            </div>
-                                        </div>   
-                                        
-                                        
-                                        
-                                        <div class="form-group input-group" hidden>
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Email" id="emailTo" name="mailAdd"  >
-                                        </div>
-                                      
-                                        
-                                        <label>Topic</label>
-                                        <div class="form-group input-group">
-                                            
-                                            <span class="input-group-addon ">+</span>
-                                            <input type="text" class="form-control " placeholder="Topic" name="emailSubject"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea class="form-control" rows="3" name="emailBody"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary" id="sendMailBtn">&nbsp;&nbsp;&nbsp;&nbsp;Send&nbsp;&nbsp;&nbsp;&nbsp; </button> 
-                                        
-                                        <button type="reset" class="btn btn-danger">&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;</button>
-
-                                    </form>
                                     <br />
                                         </div>
                                         
@@ -248,14 +218,11 @@
     </script>
    
     
+    
     <script>
-        $('#allCustomerSend').click(function(){
-           if($('#allCustomerSend').prop('checked')){
-               $('#emailTo').prop('readonly',true);
-           }
-           else{
-               $('#emailTo').prop('readonly',false)
-           }
+        $('#emailtab').click(function(){
+          
+            $('#mailformload').load('email.jsp');
         });
     </script>
 </body>

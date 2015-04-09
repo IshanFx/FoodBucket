@@ -227,13 +227,7 @@
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
 
-    <!-- Flot Charts JavaScript -->
-    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="js/plugins/flot/flot-data.js"></script>
+   
     
     
     <script>
@@ -245,40 +239,19 @@
     <script>
         $('#yearselect').change(function(){
              var year = $(this).val();
-             $('#monthlyIncomeChart').load('monthincome.jsp',{myyear:year});
+             $('#monthlyIncomeChart').load('monthincome.jsp',{myyear:year}).fadeIn('slow');
            
           });
     </script>
     <script>
         $('#annualtab').click(function(){
           
-            $('#annualIncomechart').load('annualincome.jsp');
+            $('#annualIncomechart').load('annualincome.jsp').fadeIn('slow');
             
         });
     </script>
     
-    <script>     
-       function chart3(){
-           Morris.Bar({
-                element: 'morris-bar-chart2',
-                data: [              
-                {
-                    device: 'January',
-                    geekbench: 12
-                }, 
-               
-                ],
-                xkey: 'device',
-                ykeys: ['geekbench'],
-                labels: ['Income'],
-                barRatio: 0.4,
-                xLabelAngle: 35,
-                hideHover: 'auto',
-                resize: true
-            });
-        }
-       chart3();       
-    </script>
+   
   
   
 

@@ -142,7 +142,10 @@
     <div id="morris-bar-chart1">
 
     </div>
-      
+    
+         
+    
+     <script src="js/plugins/morris/morris.min.js"></script>  
     </body>
     
 </html>

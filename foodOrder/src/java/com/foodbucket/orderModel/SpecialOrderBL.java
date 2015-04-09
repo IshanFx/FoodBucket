@@ -52,6 +52,16 @@ public class SpecialOrderBL  {
         return chk ;
     }
     
+    public int changePrice(SpecialOrderBean order){
+        int chk = 0;
+        String sql = "UPDATE specialord_tbl set ordtotal='"+order.getOrdTotal()+"' WHERE orderid='"+order.getOrdId()+"'";
+        try {
+             chk = new DBConn().executeQuery(sql); 
+        } catch (Exception e) {
+        }
+        return chk ;
+    }
+    
     public ResultSet getDeliverOrderDetails(){
         ResultSet rst = null;
         String sql = "SELECT o.orderid,so.ordfoodcate,so.orddesc,so.orderquantity,so.orddeliverdate,so.ordercusname,so.ordaddress,o.orderyear,o.ordermonth,o.orderday,o.ordertime,so.ordstate,so.ordTotal FROM order_tbl o,specialord_tbl so WHERE o.orderid=so.orderid AND so.ordstate='D' ";

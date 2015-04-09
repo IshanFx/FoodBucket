@@ -88,8 +88,8 @@ public class Report {
     }
     
     public HashMap getAllMonthIncome(int year){
-        String sql = "SELECT SUM(n.ordtotal),o.ordermonth FROM normalord_tbl n JOIN order_tbl o ON  o.orderid=n.orderid WHERE o.orderyear='"+year+"' Group by o.ordermonth ";
-        
+        String sql = "SELECT SUM(n.ordtotal),o.ordermonth FROM normalord_tbl n JOIN order_tbl o ON o.orderid=n.orderid WHERE o.orderyear='"+year+"' Group by o.ordermonth";
+        String sql2 ="SELECT SUM(s.ordtotal),o.ordermonth FROM specialord_tbl s JOIN order_tbl o ON o.orderid=s.orderid WHERE o.orderyear='"+year+"' Group by o.ordermonth";
         table = new HashMap<String,String>(); 
         table.put("January" ,"0");
         table.put("February","0");
@@ -145,6 +145,26 @@ public class Report {
                 if(rst.getInt(2)==12){
                     table.put("December",rst.getString(1));
                 }
+                
+            }
+            
+            
+            rst = new DBConn().selectQuery(sql2);
+            Double currentTotal = 0.0;
+            while(rst.next()){
+                
+                if(rst.getInt(2)==3){
+                    currentTotal =Double.parseDouble(table.get("March")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("March",currentTotal.toString() );
+                }
+                if(rst.getInt(2)==4){
+                    currentTotal =Double.parseDouble(table.get("April"));  
+                     currentTotal+= rst.getDouble(1);
+                    table.put("April",currentTotal.toString());
+                }
+                
+            
             }
            
         } 
