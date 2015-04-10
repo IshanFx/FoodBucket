@@ -19,6 +19,10 @@ import javax.swing.JOptionPane;
  * @author IshanFX
  */
 public class DBConn {
+
+    public static int Getlastid(String accid, String account_tbl) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
        PreparedStatement pstmt;
     static Connection conn = null;
     public static Connection dbConn(){

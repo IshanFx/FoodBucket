@@ -39,6 +39,38 @@ li a:hover{
 }
 </style>
 
+    <%String username="SIGN IN"; %>
+                
+<%
+    Cookie[] cookies = request.getCookies();       
+    if(cookies!=null)
+    {
+        for(int i = 0; i < cookies.length; i++) 
+        { 
+            Cookie c = cookies[i];
+            if ("username".equals(c.getName()))
+            {                      
+             username=(String)c.getValue();
+            }
+            else
+            {
+                 if(session.getAttribute("username")!=null)
+                {
+                username=(String)session.getAttribute("username"); 
+                }
+                else
+                {
+                username="SIGN IN";
+                }
+            }
+        } 
+    }
+    else
+    {
+        username="SIGN IN";
+    }
+%>
+
 <div id="headerSection">
     <div class="nav-collapse right" style="margin-left: 60%;">
                 <ul class="nav topnavigation">
@@ -46,8 +78,8 @@ li a:hover{
                                     <li><a href="account.jsp">Account</a></li>
                                     
                                     <li><a href="#feedbackModel" data-toggle="modal">FeedBack</a></li>
-                                    <li><a class="btn btn-info" data-toggle="modal" href="#myModal" style="color:white;">Sign In</a></li>
-                                    <li><a class="btn btn-danger" href="#logout" style="color:white;">Logout</a></li>
+                                    <li><a class="btn btn-info" data-toggle="modal" href="#myModal" style="color:white;"><%= username%></a></li>
+                                    <li><a class="btn btn-danger" href="LogoutS" style="color:white;">Logout</a></li>
                 </ul>
      </div>
     

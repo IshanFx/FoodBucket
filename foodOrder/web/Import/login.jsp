@@ -115,26 +115,24 @@
             <!--login moodel-->
             <div class="col-lg-6 col-sm-6" style="float: left">
                 <h4 class="cntr">Login here</h4><hr>
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="POST" action="LoginS">
                     <div class="control-group">
                         <label class="control-label" for="inputEmail">Email</label>
                         <div class="controls">
-                            <input class="element input-xlarge" type="text" id="inputEmail" placeholder="Email">
+                            <input class="element input-xlarge" type="text" name="email" placeholder="Email">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="inputPassword">Password</label>
                         <div class="controls">
-                            <input class="element input-xlarge" type="password" id="inputPassword" placeholder="Password">
+                            <input class="element input-xlarge" type="password" name="pass" placeholder="Password">
                             <p>forgot password</p>
                         </div>
-
                     </div>
-
                     <div class="control-group ">
                         <div class="controls">
                             <label class="checkbox">
-                                <input type="checkbox"><p>Remember me</p>
+                                <input type="checkbox" name="remember" ><p>Remember me</p>
                             </label>
                             <button  type="submit" class="btn btn-info input-large">Sign in </button>
                             <button  type="reset" class="btn btn-inverse">Cancel </button>
