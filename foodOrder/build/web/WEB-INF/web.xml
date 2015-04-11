@@ -32,6 +32,22 @@
         <servlet-name>FoodPriceAddServlet</servlet-name>
         <servlet-class>com.food.adminservlet.FoodPriceAddServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginS</servlet-name>
+        <servlet-class>com.food.User.LoginS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutS</servlet-name>
+        <servlet-class>com.food.User.LogoutS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SpecialOrderPlaceController</servlet-name>
+        <servlet-class>com.foodbucket.ClientController.SpecialOrderPlaceController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClientMailServlet</servlet-name>
+        <servlet-class>com.foodbucket.ClientController.ClientMailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FoodServlet</servlet-name>
         <url-pattern>/backend/FoodServlet</url-pattern>
@@ -63,6 +79,22 @@
     <servlet-mapping>
         <servlet-name>FoodPriceAddServlet</servlet-name>
         <url-pattern>/backend/FoodPriceAddServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginS</servlet-name>
+        <url-pattern>/LoginS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutS</servlet-name>
+        <url-pattern>/LogoutS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SpecialOrderPlaceController</servlet-name>
+        <url-pattern>/SpecialOrderPlaceController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClientMailServlet</servlet-name>
+        <url-pattern>/ClientMailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

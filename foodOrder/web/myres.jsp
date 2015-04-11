@@ -42,56 +42,48 @@
                 <div id="myRecipySection">
                     <div class="span6">
 
-                        <form class="form">
+                        <form class="form" id="myreceipeform" >
                             <fieldset>
                                 <div class="control-group">
                                     <h4 style="color: #000000;"><span>Give your recipe details to Us</span></h4> <hr>
                                     <div class="controls">
-                                        <input type="text" class="span3 element" id="input01" placeholder="Your Name" >
-                                        <select class=" span3 element" placeholder="Your Name">
+                                        <input type="text" class="span3 element" id="input01" placeholder="Your Name" name="customername" >
+                                        <select class=" span3 element" placeholder="Your Name" name="categoryselect">
                                             <option>--select category--</option>
                                             <option>pasta and rice</option>
                                             <option>cake</option>
-                                            <option>pizza</option>                                           
+                                            <option>pizza</option>
+                                            <option>Sweets</option> 
                                         </select>
                                     </div>
                                 </div>
                                 <div class="control-group">
-
-
-
                                     <div class="controls">
-                                        <input type="text" class="span3 element" id="input01" placeholder="quntity" >
-                                        <input type="datetime-local" class="span3 element" id="input01" placeholder="date" >
-
-
+                                        <input type="text" class="span3 element" id="input01" placeholder="quntity" name="quantity" >
+                                        <input type="date" class="span3 element" id="input01" placeholder="DD/MM/YYYY" name="date" >
                                     </div>
                                 </div>
 
-
-
                                 <div class="controls">
-                                    <textarea class="input-xxlarge element" id="textarea" rows="3" placeholder="Address"></textarea>
-
+                                    <textarea class="input-xxlarge element" id="textarea" rows="3" placeholder="Address" name="address"></textarea>
                                 </div>
 
                                 <div class="control-group">
 
                                     <div class="controls">
-                                        <textarea class="input-xxlarge element"  id="textarea" rows="10" placeholder="Your note" style="height : 120px" ></textarea>
+                                        <textarea class="input-xxlarge element"  id="textarea" rows="10" placeholder="Your note" style="height : 120px" name="receipe"></textarea>
                                     </div>
 
-                                    <div class=" alert element" style="width: 495px">
+                                   <!-- <div class=" alert element" style="width: 495px">
                                         <div class="controls">
                                             <input type="file" class="span6 element" id="input01" placeholder="choose file" >
                                         </div>  
-
                                     </div>
-
+                                    -->
 
                                     <div class="span6 offset10" style="margin-left: 380px;">
-                                        <button type="submit" class="btn btn-info input-small  ">Conform</button>
-                                        <button class="btn btn-inverse ">Cancel</button>
+                                        <button type="submit" class="btn btn-info input-small  ">Confirm</button>
+                                        <button class="btn btn-danger " type="reset">Clear</button>
                                     </div>
                             </fieldset>
                         </form>
@@ -145,8 +137,25 @@
         </div>
     </marquee>
     <!---------------------End Thumnail------------------------------------>       
-
-
+   
+    
+    
+    <script src="backend/js/jquery.js"></script>
+    <script>
+        $('#myreceipeform').submit(function(){
+            $.ajax({
+                url:'SpecialOrderPlaceController',
+                type: 'POST',
+                data: $('#myreceipeform').serialize(),
+                success:function(data){
+                    alert("Send Success");
+                  
+                }
+            });
+           return false;
+        });
+    </script>
+    
     <%@include  file="Import/footer.jsp" %>
 
 </body>

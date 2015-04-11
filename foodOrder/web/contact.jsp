@@ -12,8 +12,8 @@
         <title>JSP Page</title>
         <%@include file="Import/head.jsp" %>
         
-        <script src="http://maps.googleapis.com/maps/api/js"></script>
-
+        <!-- <script src="http://maps.googleapis.com/maps/api/js"></script>
+        -->
         <style>
              body{
              background-size: 2500px}
@@ -51,27 +51,27 @@
                 <div id="contactSection">
                     <div class="span6" style="margin-top: -100px;">
 
-                        <form class="form">
+                        <form class="form" id="contactform">
                             <fieldset>
                                 <div class="control-group">
                                     <h4><span>Mail us</span></h4> <hr>
                                     <div class="controls">
-                                        <input type="text" class="input-xlarge" id="input01" placeholder="Your Name" style=" border-radius: 0px; width: 200px">
-                                        <input type="text" class="input-xlarge" id="input01" placeholder="Your Email" style="margin-left: 25px; border-radius: 0px; width: 200px">
+                                        <input type="text" name="cusname" class="input-xlarge" id="input01" placeholder="Your Name" style=" border-radius: 0px; width: 200px">
+                                        <input type="text" name="cusmail" class="input-xlarge" id="input01" placeholder="Your Email" style="margin-left: 25px; border-radius: 0px; width: 200px">
 
                                     </div>
                                 </div>
                                 <div class="control-group">
 
                                     <div class="controls">
-                                        <input type="text" class="input-xxlarge" id="input11" placeholder="Subject"  style=" border-radius: 0px; width: 443px">
+                                        <input type="text" name="mailsubject" class="input-xxlarge" id="input11" placeholder="Subject"  style=" border-radius: 0px; width: 443px">
 
                                     </div>
                                 </div>
                                 <div class="control-group">
 
                                     <div class="controls">
-                                        <textarea class="input-xlarge" id="textarea" rows="3" placeholder="Message" style="width: 443px;height:200px; border-radius: 0px; "></textarea>
+                                        <textarea name="message" class="input-xlarge" id="textarea" rows="3" placeholder="Message" style="width: 443px;height:200px; border-radius: 0px; "></textarea>
                                     </div>
                                 </div>
 
@@ -147,7 +147,20 @@
 
         <%@include file="Import/footer.jsp" %>
 
-
+        <script>
+            $('#contactform').submit(function(){
+                $.ajax({
+                    url: "ClientMailServlet",
+                    type: 'POST',
+                    data: $('#contactform').serialize(),
+                    success:function(succ){
+                        alert("Success");
+                    }
+                });
+                
+                return false;
+            })
+        </script>
 
     </body>
 </html>

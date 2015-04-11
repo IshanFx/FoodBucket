@@ -48,7 +48,7 @@ public class DBConn {
         x =  pstmt.executeUpdate();
         }
         catch(Exception ex){
-            x=20;
+           System.out.println(ex);
         }
         return x;
     }

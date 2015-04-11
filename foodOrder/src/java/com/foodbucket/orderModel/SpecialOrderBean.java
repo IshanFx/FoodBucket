@@ -24,6 +24,7 @@ public class SpecialOrderBean {
     private int ordId;
     private String ordState;
     private Double ordTotal;
+    private int ordCusId;
     
     public SpecialOrderBean(){
     
@@ -98,6 +99,14 @@ public class SpecialOrderBean {
 
     public void setOrdTotal(Double ordTotal) {
         this.ordTotal = ordTotal;
+    }
+
+    public int getOrdCusId() {
+        return ordCusId;
+    }
+
+    public void setOrdCusId(int ordCusId) {
+        this.ordCusId = ordCusId;
     }
     
 }
