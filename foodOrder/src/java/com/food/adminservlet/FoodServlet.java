@@ -51,7 +51,7 @@ public class FoodServlet extends HttpServlet {
         bkfood.setFoodPrice(Double.parseDouble(request.getParameter("foodprice")));
         bkfood.setFoodCateg( request.getParameter("foodcate"));
         bkfood.setFoodDesc( request.getParameter("fooddesc"));
-             
+        
         bkfood.setFoodimage(request.getPart("foodimage"));
         bkfood.setFoodstatus("Y");
         

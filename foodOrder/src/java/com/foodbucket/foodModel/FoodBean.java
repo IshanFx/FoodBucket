@@ -11,6 +11,7 @@ package com.foodbucket.foodModel;
 import java.io.InputStream;
 import java.io.Serializable;
 import javax.servlet.http.Part;
+import javax.websocket.Decoder;
 
 /**
  *
@@ -24,7 +25,7 @@ public class FoodBean implements Serializable{
     private String foodCateg;
     private String foodstatus;
     private Part foodimage;
-
+    private InputStream foodRetreiveImage;
    
     public int getFoodId() {
         return foodId;
@@ -87,6 +88,14 @@ public class FoodBean implements Serializable{
     public FoodBean(){
     
     
+    }
+
+    public InputStream getFoodRetreiveImage() {
+        return foodRetreiveImage;
+    }
+
+    public void setFoodRetreiveImage(InputStream foodRetreiveImage) {
+        this.foodRetreiveImage = foodRetreiveImage;
     }
     
     

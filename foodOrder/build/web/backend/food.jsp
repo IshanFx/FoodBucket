@@ -107,10 +107,10 @@
                                         <div class="form-group">
                                             <label>Category</label>
                                             <select class="form-control" name="foodcate" required>
-                                                <option value="Sweets">Sweets</option>
-                                                <option value="Buns" selected>Buns</option>
+                                                <option value="Sweets">Pasta</option>
+                                                <option value="Buns" selected>Pizza</option>
                                                 <option value="cake">Cake</option>
-                                                <option value="Break">Bread</option>
+                                                <option value="Break">Sweets</option>
                                             </select>
                                         </div>
                                         

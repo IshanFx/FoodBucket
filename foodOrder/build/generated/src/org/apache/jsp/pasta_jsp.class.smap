@@ -1,0 +1,44 @@
+SMAP
+pasta_jsp.java
+JSP
+*S JSP
+*F
++ 0 pasta.jsp
+pasta.jsp
++ 1 head.jsp
+Import/head.jsp
++ 2 navbar2.jsp
+Import/navbar2.jsp
++ 3 feedbackmodel.jsp
+Import/feedbackmodel.jsp
++ 4 login.jsp
+Import/login.jsp
++ 5 paAndRiceModel.jsp
+Import/paAndRiceModel.jsp
++ 6 footer.jsp
+Import/footer.jsp
+*L
+5,11:54
+5#1,51:65
+15#0,2:115
+5#2,51:117
+56:168,3
+57,30:171
+86,9:201
+95:210,3
+96,47:213
+5#3,101:259
+142#2:359,2
+5#4,157:361
+16#0,3:517
+19:520,3
+20,10:523
+30:533,3
+31,5:536
+36:541,3
+37,16:544
+5#5,110:560
+52#0,3:669
+5#6,39:672
+54#0,4:711
+*E

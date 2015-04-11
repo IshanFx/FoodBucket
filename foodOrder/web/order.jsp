@@ -4,6 +4,8 @@
     Author     : Suresh
 --%>
 
+<%@page import="com.foodbucket.foodModel.FoodBean"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,21 +23,29 @@
         <%@include file="Import/navbar2.jsp" %>
 
         <div class="container" style="margin-top: 200px;">
+            <% 
+                    Object session1 = request.getSession().getAttribute("cart");
+                    ArrayList<FoodBean> lis = new ArrayList<FoodBean>();
+                    lis = (ArrayList)session1;
+            
+            for(FoodBean list : lis) {    %>
+            <form action="CartRemoveServlet" method="POST"> 
+                   
             <div class="row" >
                 <!--register model-->           
                 <div class="span3" >
                     <form class="form-horizontal">
                         <div class="thumbnail">
                             <div class="blockDtl">
-                                <a href="#"><img src="themes/images/portfolio/2.png" alt=""></a>
-                                <h4>Easy Interface</h4>
-                               
+                                <a href="#"><img src="themes/images/portfolio/<%=list.getFoodstatus() %>" style="max-height: 150px;" alt=""></a>
+                                <h4><%=list.getFoodId() %></h4>
                             </div>
                         </div>  
                 </div> 
                 <div class="span4">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                    <p><%=list.getFoodDesc() %> </p>
                 </div>
+                
                 <div class=span3>
                     <div class="control-group">
                         <label class="control-label" for="inputEmail">Quantity</label>
@@ -52,49 +62,17 @@
                     
                     <div class="control-group left ">
                         <div class="controls">
-                        <button class="btn btn-danger cntr "><i class="icon-remove-sign"></i> Remove</button>      
+                            <button class="btn btn-danger cntr " type="submit"><i class="icon-remove-sign"></i> Remove</button>      
                         </div>
-                    </div>                 
+                    </div>      
+                    <input type="text" name="id" value="<%=list.getFoodId() %>" class="hidden" >
                     </form>
                 </div>
             </div>
-                    
-            <div class="row">
-                <!--register model-->           
-                <div class="span3" >
-                <form class="form-horizontal">
-                        <div class="thumbnail">
-                            <div class="blockDtl">
-                                <a href="#"><img src="themes/images/portfolio/2.png" alt=""></a>
-                                <h4>Easy Interface</h4>
-                                
-                            </div>
-                        </div>  
-                </div>  
-                <div class="span4">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                </div>
-                <div class=span3>
-                    <div class="control-group">
-                        <label class="control-label" for="inputEmail">Quantity</label>
-                        <div class="controls">
-                            <input class="element input-xlarge" type="number" id="inputEmail" placeholder="selectqty">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputPassword"></label>
-                        <div class="controls">
-                            <span class="badge badge-warning" style=" font-size: 20px;padding: 10px;">Rs:400 /=</span>
-                        </div>
-                    </div>
-                    <div class="control-group left ">
-                        <div class="controls">
-                        <button class="btn btn-danger cntr "><i class="icon-remove-sign"></i> Remove</button>      
-                        </div>
-                    </div>                 
-                    </form>
-                </div>
-            </div>
+                
+            </form>
+               <% } %>     
+         
             <div class="row ">
                 <form >
                     <div class="control-group col-md-4 right">      

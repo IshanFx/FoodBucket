@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.Part;
 /**
  *
  * @author IshanFX
@@ -95,7 +96,9 @@ public class FoodBL extends FoodBean implements FoodManage {
         }
         return count;
     }
+    
     public int getFoodMaxID(){
+    
     int maxId = 0;
         ResultSet rst= null;
         String sql = "SELECT MAX(foodid) FROM food_tbl";
@@ -110,6 +113,33 @@ public class FoodBL extends FoodBean implements FoodManage {
         }
         return maxId;
     
+    }
+    
+    public ArrayList getFoodCake(){
+        ArrayList<FoodBean> list = new ArrayList<FoodBean>();
+        FoodBean food = null;
+        String sql = "SELECT * FROM food_tbl WHERE foodcategory='cake' AND foodstatus='Y'";
+        ResultSet rst = null;
+       
+        try {
+            InputStream binaryStream = null; 
+            stmt = DBConn.dbConn().createStatement();           
+            rst = stmt.executeQuery(sql);
+            while(rst.next()){
+               binaryStream = rst.getBinaryStream(7);
+               food = new FoodBean();
+               food.setFoodId(rst.getInt(1));
+               food.setFoodName(rst.getString(2));
+               food.setFoodPrice(rst.getDouble(3));
+               food.setFoodDesc(rst.getString(4));
+               food.setFoodCateg(rst.getString(6));
+               food.setFoodRetreiveImage(binaryStream);
+               list.add(food);
+            }
+            
+        } catch (Exception e) {
+        }
+        return list;
     }
     
    

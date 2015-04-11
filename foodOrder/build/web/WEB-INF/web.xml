@@ -48,6 +48,14 @@
         <servlet-name>ClientMailServlet</servlet-name>
         <servlet-class>com.foodbucket.ClientController.ClientMailServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartAddController</servlet-name>
+        <servlet-class>com.foodbucket.ClientController.CartAddController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CartRemoveServlet</servlet-name>
+        <servlet-class>com.foodbucket.ClientController.CartRemoveServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FoodServlet</servlet-name>
         <url-pattern>/backend/FoodServlet</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>ClientMailServlet</servlet-name>
         <url-pattern>/ClientMailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartAddController</servlet-name>
+        <url-pattern>/CartAddController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartRemoveServlet</servlet-name>
+        <url-pattern>/CartRemoveServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
