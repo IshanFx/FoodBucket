@@ -38,6 +38,7 @@ public class AccountS extends HttpServlet {
         int status=0;
         String msg;
         PrintWriter out=response.getWriter(); 
+        if(request.getParameter("hidden")=="dashboard"){
         if(request.getParameter("hidden")=="SIGN IN"){
            response.sendRedirect("AccountS?parem1=<%=username%>");
         }
@@ -57,6 +58,42 @@ public class AccountS extends HttpServlet {
         }
         request.setAttribute("meassge",msg);
         request.getRequestDispatcher("account.jsp").forward(request, response);
+        }
+        }
+        else
+        {
+            String password;
+            if(request.getParameter("hidden")=="SIGN IN"){
+                response.sendRedirect("AccountS?parem1=<%=username%>");
+            }
+            else{                           
+                String newpass=request.getParameter("newpass");
+                
+                password=user.GetPassword(request.getParameter("hidden"));
+                if(password.equals(request.getParameter("currpass")))
+                {
+                    try {
+                        status=user.PassUpdate(newpass,request.getParameter("hidden"));
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AccountS.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if(status==1){
+                        msg="<span class=\"alert alert-success msg\">Update Succesfull</span>"; 
+                    }
+                    else
+                    {
+                        msg="<span class=\"alert alert-danger msg\">Update Faild!</span>";  
+                    }
+                    request.setAttribute("meassge",msg);
+                    request.getRequestDispatcher("account.jsp").forward(request, response);
+                }
+                else
+                {
+                    msg="<span class=\"alert alert-danger msg\">Error Update Password!</span>";
+                   request.setAttribute("meassge",msg);
+                   request.getRequestDispatcher("account.jsp").forward(request, response);
+                }
+            }
         }
     }
 

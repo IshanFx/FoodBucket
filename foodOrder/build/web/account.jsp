@@ -4,6 +4,7 @@
     Author     : Suresh
 --%>
 
+<%@page import="com.food.User.User"%>
 <%@page import="java.io.*,java.util.*"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -107,6 +108,7 @@
                                         <label class="control-label" for="fistName"></label>
                                         <div class="controls"> 
                                             <input type="hidden" name="hidden" value="<%=username%>"/>
+                                            <input type="hidden" name="hidden" value="dashboard"/>
                                             <input type='submit' value="Update" class=" btn btn-success">
                                             <button type="reset"  class="btn btn-danger">clear</button>
                                         </div>
@@ -119,26 +121,44 @@
                       <div class="tab-pane fade" id="tab2">
                           
                           <div class="col-md-6">
-                                <form class="form-horizontal">
+                              <form class="form-horizontal" action="AccountS" method="POST">
                                     <div class="control-group">
                                         <label class="control-label" for="fistName">Current Password</label>
                                         <div class="controls">
-                                            <input class="element input-xlarge" type="text" id="fistName" >
+                                            <input class="element input-xlarge" type="password" name="currpass" id="fistName" required>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="fistName">New Password</label>
                                         <div class="controls">
-                                            <input class="element input-xlarge" type="text" id="fistName" >
+                                            <input class="element input-xlarge" type="password"  id="password" required >
                                         </div>
                                     </div>
                                     <div class="control-group">    
                                         <label class="control-label" for="fistName">Confirm Password</label>
-                                        <div class="controls">
-                                            <input class="element input-xlarge" type="text" id="fistName">
+                                        <div class="controls">                                           
+                                            <input class="element input-xlarge left" type="password" name="newpass" id="conforma" data-match="#password" required>
+<script>
+    var password = document.getElementById("password")
+    , conforma = document.getElementById("conforma");
+    function validatePassword() {
+        if (password.value != conforma.value) {
+            conforma.setCustomValidity("Passwords Dosn't Match");
+        } else {
+            conforma.setCustomValidity('');
+        }
+    }
+    password.onchange = validatePassword;
+    conforma.onkeyup = validatePassword;
+</script>
+                                            <br><br>
+                                            <input type="hidden" name="hidden" value="<%=username%>"/>                                         
+                                            <input type='submit' value="Update" class=" btn btn-success">
+                                            <button type="reset"  class="btn btn-danger">clear</button>                                         
                                         </div>
+                                           
                                     </div>    
-                                </form>
+                                </form>                              
                           </div>  
                       </div>
                         <div class="tab-pane fade" id="tab3">

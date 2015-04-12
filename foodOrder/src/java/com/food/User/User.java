@@ -123,6 +123,33 @@ public class User {
         }
         return set;
     }
+    
+    public String GetPassword(String uname)
+    {
+        String password="";
+      try{
+            Statement stmt = DBConn.dbConn().createStatement();
+            String query = "SELECT accpsw FROM account_tbl WHERE accuname='"+uname+"'";
+            ResultSet rst = stmt.executeQuery(query);
+        
+        while(rst.next())
+        {
+          password=rst.getString(1);
+        }  
+        }
+        catch(Exception ex){
+            
+        }
+        return password;
+    }
+    
+    public int PassUpdate(String newP,String currP) throws SQLException
+    {
+       Statement stmt = DBConn.dbConn().createStatement();
+       sql="UPDATE account_tbl SET accpsw='"+newP+"' WHERE accuname='"+currP+"'"; 
+       status=stmt.executeUpdate(sql);
+       return status;
+    }
  
     public void maxid()
     {      
