@@ -89,7 +89,7 @@
     <div class="nav-collapse right" style="margin-left: 60%;">
                 <ul class="nav topnavigation">
                                     <li><a href="order.jsp" style="border:1px solid gray; background-color:white; border-radius: 15px;">Cart <span class="badge badge-info ">&nbsp; 8</span></a></li>
-                                    <li><a href="account.jsp">Account</a></li>
+                                    <li><a href="AccountS?parem1=<%=username%>">Account</a></li>
                                     
                                     <li><a href="#feedbackModel" data-toggle="modal">FeedBack</a></li>
                                     <li><a class="btn btn-info" data-toggle="modal" href="#myModal" style="color:white;"><%= username%></a></li>

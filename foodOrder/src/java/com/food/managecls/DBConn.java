@@ -20,9 +20,6 @@ import javax.swing.JOptionPane;
  */
 public class DBConn {
 
-    public static int Getlastid(String accid, String account_tbl) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
        PreparedStatement pstmt;
     static Connection conn = null;
     public static Connection dbConn(){
@@ -64,4 +61,26 @@ public class DBConn {
         }
         return set;
     } 
+    
+    public  int Getlastid(String clm,String tbl)
+    {
+        String sql;
+       int maxid = 0;
+       ResultSet rs=null;
+       
+        try{                   
+           pstmt=conn.prepareStatement("select max("+clm+") from "+tbl+"");
+           rs=pstmt.executeQuery(); 
+           
+           while(rs.next()){
+               maxid=rs.getInt(1);
+           }          
+            conn.close();
+        }
+        catch(Exception ex){
+             
+        }
+        
+        return maxid+1;   
+    }
 }

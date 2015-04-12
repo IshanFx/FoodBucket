@@ -56,6 +56,14 @@
         <servlet-name>CartRemoveServlet</servlet-name>
         <servlet-class>com.foodbucket.ClientController.CartRemoveServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AccountS</servlet-name>
+        <servlet-class>com.food.User.AccountS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterS</servlet-name>
+        <servlet-class>com.food.User.RegisterS</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FoodServlet</servlet-name>
         <url-pattern>/backend/FoodServlet</url-pattern>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>CartRemoveServlet</servlet-name>
         <url-pattern>/CartRemoveServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountS</servlet-name>
+        <url-pattern>/AccountS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterS</servlet-name>
+        <url-pattern>/RegisterS</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

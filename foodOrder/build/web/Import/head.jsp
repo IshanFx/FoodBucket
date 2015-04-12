@@ -49,6 +49,9 @@
 <script src="themes/js/jquery.easing-1.3.min.js"></script>
 <script src="themes/js/jquery.scrollTo-1.4.3.1-min.js"></script>
 <script src="themes/js/default.js"></script> 
+<script src="../themes/js/jquery.form.js" type="text/javascript"></script>
+<script src="../themes/js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../themes/js/jquery-1.9.1.min.js" type="text/javascript"></script>
      <!-------------------------test link-------------- -->        
         
     </head>
