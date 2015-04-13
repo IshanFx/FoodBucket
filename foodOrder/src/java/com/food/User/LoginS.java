@@ -20,31 +20,28 @@ import javax.servlet.http.HttpSession;
 public class LoginS extends HttpServlet {
 
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginS</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginS at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
-    }
-
- 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try{
+         response.setContentType("text/html");  
+            PrintWriter out=response.getWriter();  
+              
+            request.getRequestDispatcher("index.jsp").include(request, response);  
+              
+            HttpSession session=request.getSession();  
+            session.invalidate(); 
+            Cookie userCookie=new Cookie("username","");  
+            userCookie.setMaxAge(0);  
+            response.addCookie(userCookie);  
+            response.sendRedirect("index.jsp");
+            out.print("You are successfully logged out!");  
+              
+            out.close();    
+        }
+        catch(Exception ex){
+            
+        }
     }
 
 
@@ -53,17 +50,17 @@ public class LoginS extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         User user=new User();
-        UserController uControl=new UserController();
         boolean status;
-        
-        user.setCusemail(request.getParameter("email"));
-        user.setAccpsw(request.getParameter("pass"));
-        String remember=request.getParameter("remember");        
-        
-        try 
-        {
-            status=uControl.LogCheck(user);
-            
+        int st;
+  
+            out.print("login");
+            user.setCusemail(request.getParameter("email"));
+            user.setAccpsw(request.getParameter("pass"));
+            String remember=request.getParameter("remember");        
+
+        try {
+            status=user.LogCheck(user);
+       
             if(status==true)
             {
                 HttpSession userSecssion=request.getSession();
@@ -80,19 +77,16 @@ public class LoginS extends HttpServlet {
                 userCookie.setMaxAge(100);
                 response.addCookie(userCookie);
                 response.sendRedirect("index.jsp");
-                }
-                
+                }                
             }
             else
             {
                 response.sendRedirect("error.jsp");
             }
-            
-        } 
-        catch (SQLException ex) 
-        {
-        out.println(ex);
+            } catch (SQLException ex) {
+            Logger.getLogger(LoginS.class.getName()).log(Level.SEVERE, null, ex);
         }
+  
     }
 
 
