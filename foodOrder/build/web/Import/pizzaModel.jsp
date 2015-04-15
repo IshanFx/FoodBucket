@@ -44,7 +44,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"
                 aria-hidden="true">×</button>
-        <h3 id="myModalLabel" class="cntr">custermize order</h3>
+        <h3 id="myModalLabel" class="cntr">Customize order</h3>
     </div>
     <div class="modal-body">
 
@@ -71,17 +71,17 @@
             <!--extra adding-->           
             <div class="col-lg-6 col-sm-6" style="float: left">
                 <h4 class="cntr">Extra adding</h4><hr>
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="CartAddController" method="post">
                     <div class="control-group">
                         <label class="control-label" for="LastName">Extra 1</label>
                         <div class="controls">
-                            <select class=" input-xlarge element" placeholder="Your Name">
-                                <option>--select-----</option>
-                                <option>Cheese 100/=</option>
-                                <option>Union 20/=</option>
-                                <option>pineapple 50/=</option>
-                                <option>Tomato 50/=</option>
-                                <option>Chicken Sausage 150/=</option>
+                            <select class=" input-xlarge element" name="extra1" placeholder="Your Name">
+                                <option value="0">--select-----</option>
+                                <option value="100">Cheese 100/=</option>
+                                <option value="20">Union 20/=</option>
+                                <option value="50" > pineapple 50/=</option>
+                               
+                                <option value="150">Chicken Sausage 150/=</option>
                             </select>
                         </div>
                     </div>
@@ -89,13 +89,13 @@
                     <div class="control-group">
                         <label class="control-label" for="LastName">Extra 2</label>
                         <div class="controls">
-                            <select class=" input-xlarge element" placeholder="Your Name">
-                                <option>--select-----</option>
-                                <option>Cheese 100/=</option>
-                                <option>Union 20/=</option>
-                                <option>pineapple 50/=</option>
-                                <option>Tomato 50/=</option>
-                                <option>Chicken Sausage 150/=</option>
+                            <select class=" input-xlarge element" name="extra2" placeholder="Your Name">
+                                <option value="0">--select-----</option>
+                                <option value="100">Cheese 100/=</option>
+                                <option value="20">Union 20/=</option>
+                                <option value="50">pineapple 50/=</option>
+                                <option value="50">Tomato 50/=</option>
+                                <option value="150">Chicken Sausage 150/=</option>
                             </select>
                         </div>
                     </div>
@@ -106,6 +106,13 @@
                             <button  type="reset" class="btn btn-inverse">Cancel </button>
                         </div>
                     </div>
+                    
+                    <input type="text" class="hidden" name="Id" id="Id" value="" >
+                    <input type="text" class="hidden" name="name" id="name" value="" >
+                    <input type="text" class="hidden" name="price" id="price"  value="" >
+                    <input type="text" class="hidden" name="desc" id="desc" value="" >
+                    <input type="text" class="hidden" name="image" id="image"  value="" >
+                    
                 </form>
             </div>
 

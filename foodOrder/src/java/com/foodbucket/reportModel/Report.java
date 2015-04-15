@@ -90,6 +90,7 @@ public class Report {
     public HashMap getAllMonthIncome(int year){
         String sql = "SELECT SUM(n.ordtotal),o.ordermonth FROM normalord_tbl n JOIN order_tbl o ON o.orderid=n.orderid WHERE o.orderyear='"+year+"' Group by o.ordermonth";
         String sql2 ="SELECT SUM(s.ordtotal),o.ordermonth FROM specialord_tbl s JOIN order_tbl o ON o.orderid=s.orderid WHERE o.orderyear='"+year+"' Group by o.ordermonth";
+        
         table = new HashMap<String,String>(); 
         table.put("January" ,"0");
         table.put("February","0");
@@ -106,8 +107,8 @@ public class Report {
         
         int rowCount=0;
         try {
-            
-            rst = new DBConn().selectQuery(sql);
+            stmt = DBConn.dbConn().createStatement();
+            rst =stmt.executeQuery(sql);
             while(rst.next()){
                 if(rst.getInt(2)==1){
                     table.put("January" ,rst.getString(1));
@@ -148,11 +149,20 @@ public class Report {
                 
             }
             
-            
-            rst = new DBConn().selectQuery(sql2);
+            stmt = DBConn.dbConn().createStatement();
+            rst = stmt.executeQuery(sql2);
             Double currentTotal = 0.0;
             while(rst.next()){
-                
+                if(rst.getInt(2)==1){
+                    currentTotal =Double.parseDouble(table.get("January")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("January",currentTotal.toString() );
+                }
+                if(rst.getInt(2)==2){
+                    currentTotal =Double.parseDouble(table.get("February")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("February",currentTotal.toString() );
+                }
                 if(rst.getInt(2)==3){
                     currentTotal =Double.parseDouble(table.get("March")); 
                     currentTotal+= rst.getDouble(1);
@@ -162,6 +172,46 @@ public class Report {
                     currentTotal =Double.parseDouble(table.get("April"));  
                      currentTotal+= rst.getDouble(1);
                     table.put("April",currentTotal.toString());
+                }
+                 if(rst.getInt(2)==5){
+                    currentTotal =Double.parseDouble(table.get("May")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("May",currentTotal.toString() );
+                }
+                  if(rst.getInt(2)==6){
+                    currentTotal =Double.parseDouble(table.get("June")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("June",currentTotal.toString() );
+                }
+                   if(rst.getInt(2)==7){
+                    currentTotal =Double.parseDouble(table.get("July")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("July",currentTotal.toString() );
+                }
+                    if(rst.getInt(2)==8){
+                    currentTotal =Double.parseDouble(table.get("August")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("August",currentTotal.toString() );
+                }
+                     if(rst.getInt(2)==9){
+                    currentTotal =Double.parseDouble(table.get("September")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("September",currentTotal.toString() );
+                }
+                      if(rst.getInt(2)==10){
+                    currentTotal =Double.parseDouble(table.get("October")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("October",currentTotal.toString() );
+                }
+                       if(rst.getInt(2)==11){
+                    currentTotal =Double.parseDouble(table.get("November")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("November",currentTotal.toString() );
+                }
+                        if(rst.getInt(2)==12){
+                    currentTotal =Double.parseDouble(table.get("December")); 
+                    currentTotal+= rst.getDouble(1);
+                    table.put("December",currentTotal.toString() );
                 }
                 
             

@@ -25,7 +25,7 @@ public class FoodBean implements Serializable{
     private String foodCateg;
     private String foodstatus;
     private Part foodimage;
-    private InputStream foodRetreiveImage;
+    private String foodRetreiveImage;
    
     public int getFoodId() {
         return foodId;
@@ -90,11 +90,11 @@ public class FoodBean implements Serializable{
     
     }
 
-    public InputStream getFoodRetreiveImage() {
+    public String getFoodRetreiveImage() {
         return foodRetreiveImage;
     }
 
-    public void setFoodRetreiveImage(InputStream foodRetreiveImage) {
+    public void setFoodRetreiveImage(String foodRetreiveImage) {
         this.foodRetreiveImage = foodRetreiveImage;
     }
     

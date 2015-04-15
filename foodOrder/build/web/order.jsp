@@ -37,8 +37,8 @@
                     <form class="form-horizontal">
                         <div class="thumbnail">
                             <div class="blockDtl">
-                                <a href="#"><img src="themes/images/portfolio/<%=list.getFoodstatus() %>" style="max-height: 150px;" alt=""></a>
-                                <h4><%=list.getFoodId() %></h4>
+                                <a href="#"><img src="http://localhost:8080/images/<%=list.getFoodRetreiveImage() %>" style="max-height: 150px;" alt=""></a>
+                                <h4><%=list.getFoodName() %></h4>
                             </div>
                         </div>  
                 </div> 
@@ -56,7 +56,7 @@
                     <div class="control-group">
                         <label class="control-label" for="inputPassword"></label>
                         <div class="controls">
-                            <span class="badge badge-warning" style=" font-size: 20px;padding: 10px;">Rs: 20 /=</span>
+                            <span class="badge badge-warning" style=" font-size: 20px;padding: 10px;">1 piece price Rs:<%=list.getFoodPrice() %> /=</span>
                         </div>
                     </div>
                     
@@ -66,7 +66,7 @@
                         </div>
                     </div>      
                     <input type="text" name="id" value="<%=list.getFoodId() %>" class="hidden" >
-                    </form>
+                   
                 </div>
             </div>
                 

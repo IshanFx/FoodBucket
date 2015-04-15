@@ -198,10 +198,10 @@
                                                                
                                                                 <th>OrderId</th>
                                                                 <th>Category</th>
-                                                                <th>food</th>
-                                                                <th>Quantity</th>
-                                                                <th>Extra</th>
+                                                                <th>Description</th>
+                                                                <th>Quantity</th>  
                                                                 <th>Deliver Date</th>
+                                                                <th>Customer</th>
                                                                 <th>Address</th>
                                                                 <th>Order date</th>
                                                                 <th>Order time</th>
@@ -209,8 +209,26 @@
                                                                
                                                             </tr>
                                                         </thead>
+                                                        <% SpecialOrderBL special = new SpecialOrderBL(); 
+                                                            ResultSet specialRst = special.getDeliverOrderDetails();
+                                                        %>
                                                         <tbody>
-                                                            
+                                                          <%  while(specialRst.next()) { %>
+                                                             <tr>
+                                                               
+                                                                 <th><%=specialRst.getString(1)%></th>
+                                                                <th><%=specialRst.getString(2)%></th>
+                                                                <th><%=specialRst.getString(3)%></th>
+                                                                <th><%=specialRst.getString(4)%></th>
+                                                                <th><%=specialRst.getString(5)%></th>
+                                                                <th><%=specialRst.getString(6)%></th>
+                                                                <th><%=specialRst.getString(7)%></th>
+                                                                <th><%=specialRst.getString(8)%>/ <%=specialRst.getString(9)%>/<%=specialRst.getString(10)%> </th>
+                                                                <th><%=specialRst.getString(11)%></th>
+                                                                <th><%=specialRst.getString(12)%></th>
+                                                               
+                                                            </tr>
+                                                            <% } %>
                                                         </tbody>
                                                     </table>
                                                 </div>

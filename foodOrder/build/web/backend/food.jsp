@@ -107,16 +107,16 @@
                                         <div class="form-group">
                                             <label>Category</label>
                                             <select class="form-control" name="foodcate" required>
-                                                <option value="Sweets">Pasta</option>
-                                                <option value="Buns" selected>Pizza</option>
+                                                <option value="Pasta">Pasta</option>
+                                                <option value="Pizza" selected>Pizza</option>
                                                 <option value="cake">Cake</option>
-                                                <option value="Break">Sweets</option>
+                                                <option value="Sweets">Sweets</option>
                                             </select>
                                         </div>
                                         
                                         <div class="form-group">
                                             <label>Image</label>
-                                            <input type="file" name="foodimage" />
+                                            <input type="file" name="file" />
                                         </div>
 
                                         <input type="submit" class="btn btn-primary" value="Add">

@@ -316,10 +316,10 @@ public final class food_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <div class=\"form-group\">\r\n");
       out.write("                                            <label>Category</label>\r\n");
       out.write("                                            <select class=\"form-control\" name=\"foodcate\" required>\r\n");
-      out.write("                                                <option value=\"Sweets\">Sweets</option>\r\n");
-      out.write("                                                <option value=\"Buns\" selected>Buns</option>\r\n");
+      out.write("                                                <option value=\"Sweets\">Pasta</option>\r\n");
+      out.write("                                                <option value=\"Buns\" selected>Pizza</option>\r\n");
       out.write("                                                <option value=\"cake\">Cake</option>\r\n");
-      out.write("                                                <option value=\"Break\">Bread</option>\r\n");
+      out.write("                                                <option value=\"Break\">Sweets</option>\r\n");
       out.write("                                            </select>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        \r\n");

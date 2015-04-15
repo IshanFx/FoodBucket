@@ -31,7 +31,7 @@ public class FoodRemoveServlet extends HttpServlet {
         food.setFoodId(Integer.parseInt(request.getParameter("foodremoveid")));
         
         int chk = foodBL.removeFoodItems(food);
-            out.println(chk);
+         response.sendRedirect("food.jsp"); 
         
     }
 

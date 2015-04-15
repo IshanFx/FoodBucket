@@ -103,7 +103,7 @@
                             <div class="nav-collapse left">
                                     <ul class="nav" style="padding-bottom:2px;">
                                             <li class="active"><a href="index.jsp">Home</a></li>
-                                            <li><a href="menu.jsp">Menu</a></li>
+                                            
                                             <li><a href="myres.jsp">My Recipe</a></l>				
                                             <li><a href="about.jsp">about us</a></li>
                                             <li><a href="contact.jsp">contact us</a></li>                                        

@@ -35,11 +35,12 @@ public class FoodBL extends FoodBean implements FoodManage {
     public int addFoodItems(FoodBean food) {
         int chk = 0;
          try {
-             InputStream stream = food.getFoodimage().getInputStream();
-        String sql= "INSERT INTO food_tbl(foodid,foodname,foodprice,fooddesc,foodstatus,foodcategory,foodimg) VALUES('"+food.getFoodId()+"','"+food.getFoodName()+"','"+food.getFoodPrice()+"','"+food.getFoodDesc()+"','"+ food.getFoodstatus()+"','"+food. getFoodCateg()+"','"+stream+"')";
-            chk = new DBConn().executeQuery(sql);          
+         //    InputStream stream = food.getFoodimage().getInputStream();
+        String sql= "INSERT INTO food_tbl(foodid,foodname,foodprice,fooddesc,foodstatus,foodcategory,foodimg) VALUES('"+food.getFoodId()+"','"+food.getFoodName()+"','"+food.getFoodPrice()+"','"+food.getFoodDesc()+"','"+ food.getFoodstatus()+"','"+food. getFoodCateg()+"','"+food.getFoodRetreiveImage()+"')";
+        stmt = DBConn.dbConn().createStatement();
+        chk = stmt.executeUpdate(sql);
         } catch (Exception ex) {
-            Logger.getLogger(FoodBL.class.getName()).log(Level.SEVERE, null, ex);
+           chk =55;
         } 
         return chk;
     }
@@ -122,24 +123,66 @@ public class FoodBL extends FoodBean implements FoodManage {
         ResultSet rst = null;
        
         try {
-            InputStream binaryStream = null; 
+            //InputStream binaryStream = null; 
             stmt = DBConn.dbConn().createStatement();           
             rst = stmt.executeQuery(sql);
             while(rst.next()){
-               binaryStream = rst.getBinaryStream(7);
+               //binaryStream = rst.getBinaryStream(7);
                food = new FoodBean();
                food.setFoodId(rst.getInt(1));
                food.setFoodName(rst.getString(2));
                food.setFoodPrice(rst.getDouble(3));
                food.setFoodDesc(rst.getString(4));
                food.setFoodCateg(rst.getString(6));
-               food.setFoodRetreiveImage(binaryStream);
+               food.setFoodRetreiveImage(rst.getString(7));              
+
                list.add(food);
             }
             
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
+            
         }
         return list;
+    }
+    
+    public ResultSet getCakeDetails(){
+        String sql = "SELECT * FROM food_tbl WHERE foodcategory='cake' AND foodstatus='Y'";
+        try {
+            stmt = DBConn.dbConn().createStatement();
+            rst  = stmt.executeQuery(sql);
+        } catch (Exception e) {
+        }
+        return rst;
+    }
+    public ResultSet getPastaDetails(){
+        String sql = "SELECT * FROM food_tbl WHERE foodcategory='pasta' AND foodstatus='Y'";
+        try {
+            stmt = DBConn.dbConn().createStatement();
+            rst  = stmt.executeQuery(sql);
+        } catch (Exception e) {
+        }
+        return rst;
+    }
+    public ResultSet getPizzaDetails(){
+    String sql = "SELECT * FROM food_tbl WHERE foodcategory='pizza' AND foodstatus='Y'";
+        try {
+            stmt = DBConn.dbConn().createStatement();
+            rst  = stmt.executeQuery(sql);
+        } catch (Exception e) {
+        }
+        return rst;
+    
+    }
+    public ResultSet getSweetsDetails(){
+    String sql = "SELECT * FROM food_tbl WHERE foodcategory='Sweets' AND foodstatus='Y'";
+        try {
+            stmt = DBConn.dbConn().createStatement();
+            rst  = stmt.executeQuery(sql);
+        } catch (Exception e) {
+        }
+        return rst;
+    
     }
     
    
