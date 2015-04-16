@@ -178,4 +178,33 @@ public class User {
         }
         return false;
     }
+    
+    public ResultSet GETNormalOderFood(String uname)
+    {
+       ResultSet set = null;
+        try{
+        Statement stmt = DBConn.dbConn().createStatement();
+        String sql="SELECT f.foodimg,f.foodname,n.orderextra,n.ordquantity,n.ordtotal FROM  food_tbl f JOIN normalord_tbl n ON f.foodid=n.foodid JOIN order_tbl o ON n.orderid=o.orderid JOIN account_tbl a ON o.accid=a.accid WHERE a.accuname='"+uname+"'";
+        set =stmt.executeQuery(sql);
+        }
+        catch(Exception ex){
+            System.out.print(ex);
+        }
+        return set; 
+    }
+    
+    public ResultSet GetSpecialOrderFood(String uname)
+    {
+       ResultSet set = null;
+        try{
+        Statement stmt = DBConn.dbConn().createStatement();
+        String sql="SELECT s.ordfoodcate,s.orddesc,s.ordaddress,s.orddeliverdate,s.ordstate,s.orderquantity,s.ordTotal FROM specialord_tbl s JOIN order_tbl o ON s.orderid=o.orderid JOIN account_tbl a ON o.accid=a.accid WHERE a.accuname='"+uname+"'";
+        set =stmt.executeQuery(sql);
+        }
+        catch(Exception ex){
+            System.out.print(ex);
+        }
+        return set; 
+    }
+    
 }
