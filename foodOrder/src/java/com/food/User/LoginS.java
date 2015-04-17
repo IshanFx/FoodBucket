@@ -3,6 +3,7 @@ package com.food.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,22 +51,32 @@ public class LoginS extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         User user=new User();
-        boolean status;
+        ResultSet rst=null;
         int st;
-  
-            out.print("login");
+        String addr="",email="",psw="",uname="";
+        int id=0;
+             
             user.setCusemail(request.getParameter("email"));
             user.setAccpsw(request.getParameter("pass"));
             String remember=request.getParameter("remember");        
 
         try {
-            status=user.LogCheck(user);
-       
-            if(status==true)
+            rst=user.LogCheck(request.getParameter("email"));
+            while(rst.next()){
+                addr=rst.getString(1);
+                id=rst.getInt(2);
+                email=rst.getString(3);
+                psw=rst.getString(4);
+                uname=rst.getString(5);
+            }
+                        
+            if(psw.equals(request.getParameter("pass"))&& email.equals(request.getParameter("email")))
             {
                 HttpSession userSecssion=request.getSession();
-                userSecssion.setAttribute("username",user.getCusfname());
-                userSecssion.setAttribute("useremail",request.getParameter("email"));
+                userSecssion.setAttribute("username",uname);
+                userSecssion.setAttribute("useremail",email);
+                userSecssion.setAttribute("userid",id);
+                userSecssion.setAttribute("useraddress", addr);
                 //userSecssion.setMaxInactiveInterval(20*60);
                 if(remember==null)
                 {
@@ -81,7 +92,9 @@ public class LoginS extends HttpServlet {
             }
             else
             {
-                response.sendRedirect("error.jsp");
+                String msg="<span class=\"alert alert-danger msg alr\">Enter Valid Email & Password!</span>";
+                request.setAttribute("msg",msg);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
             } catch (SQLException ex) {
             Logger.getLogger(LoginS.class.getName()).log(Level.SEVERE, null, ex);

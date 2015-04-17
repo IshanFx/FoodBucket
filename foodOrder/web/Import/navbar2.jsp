@@ -51,6 +51,8 @@
     color:white;
 }
 
+.alr{left: 225px;position: relative;}
+
 </style>
 
     <%String username="SIGN IN"; %>
@@ -95,7 +97,6 @@
                                     <li><a class="btn btn-info" data-toggle="modal" href="#myModal" style="color:white;"><%= username%></a></li>
                                     <li><a class="btn btn-danger" href="LogoutS" style="color:white;">Logout</a></li>
                 </ul>
-            
      </div>
                                     
      <div class="row mainmenu">
@@ -106,7 +107,8 @@
                                             <li><a href="menu.jsp">Menu</a></li>
                                             <li><a href="myres.jsp">My Recipe</a></l>				
                                             <li><a href="about.jsp">about us</a></li>
-                                            <li><a href="contact.jsp">contact us</a></li>                                        
+                                            <li><a href="contact.jsp">contact us</a></li> 
+                                            
                                     </ul>
 
                             </div>
@@ -131,6 +133,7 @@
                     <li class="btn btn-warning" id="pizzatab"><a style="color: white" href="pizza.jsp" >Pizza</a></li>
                     <li class="btn btn-warning" id="caketab"><a style="color: white" href="cake.jsp" >Cake</a></li>
                     <li class="btn btn-warning" id="sweetstab"><a style="color: white" href="sweets.jsp">Sweets</a></li>
+                    <li>${msg}</li>
                 </ul>
             </div>
             

@@ -157,26 +157,18 @@ public class User {
     
     }
     
-    public boolean LogCheck(User user) throws SQLException
+    public ResultSet LogCheck(String email) throws SQLException
     {
+        ResultSet set = null;
         try{
-            Statement stmt = DBConn.dbConn().createStatement();
-            String query = "SELECT * FROM account_tbl WHERE email='"+user.getCusemail()+"'";
-            ResultSet rst = stmt.executeQuery(query);
-        
-        while(rst.next())
-        {
-            String uname=rst.getString("email");
-            String psw=rst.getString("accpsw");
-            user.setCusfname(rst.getString("accuname"));
-            
-            return user.getCusemail().equals(uname) && user.getAccpsw().equals(psw);
-        }  
+        Statement stmt = DBConn.dbConn().createStatement();
+        String sql="SELECT cus.cusaddress,acc.accid,acc.email,acc.accpsw,acc.accuname FROM customer_tbl cus LEFT JOIN account_tbl acc ON cus.accid = acc.accid WHERE acc.email='"+email+"'";
+        set =stmt.executeQuery(sql);
         }
         catch(Exception ex){
-            
+            System.out.print(ex);
         }
-        return false;
+        return set;
     }
     
     public ResultSet GETNormalOderFood(String uname)
