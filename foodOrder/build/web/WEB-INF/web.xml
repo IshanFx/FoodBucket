@@ -64,6 +64,14 @@
         <servlet-name>RegisterS</servlet-name>
         <servlet-class>com.food.User.RegisterS</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NormalOrderCartController</servlet-name>
+        <servlet-class>com.foodbucket.ClientController.NormalOrderCartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NormalOrderPlaceController</servlet-name>
+        <servlet-class>com.foodbucket.ClientController.NormalOrderPlaceController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FoodServlet</servlet-name>
         <url-pattern>/backend/FoodServlet</url-pattern>
@@ -128,16 +136,24 @@
         <servlet-name>RegisterS</servlet-name>
         <url-pattern>/RegisterS</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NormalOrderCartController</servlet-name>
+        <url-pattern>/NormalOrderCartController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NormalOrderPlaceController</servlet-name>
+        <url-pattern>/NormalOrderPlaceController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <context-param> 
-        <description>Location to store uploaded file</description> 
-        <param-name>file-upload</param-name> 
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
         <param-value>
             E:\Program Files (x86)\tomcat\webapps\images\
-         </param-value> 
+         </param-value>
     </context-param>
 </web-app>

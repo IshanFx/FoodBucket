@@ -50,7 +50,7 @@
                                         <input type="text" class="span3 element" id="input01" placeholder="Your Name" name="customername" >
                                         <select class=" span3 element" placeholder="Your Name" name="categoryselect">
                                             <option>--select category--</option>
-                                            <option>pasta and rice</option>
+                                            <option>pasta</option>
                                             <option>cake</option>
                                             <option>pizza</option>
                                             <option>Sweets</option> 
@@ -89,30 +89,10 @@
                         </form>
                     </div> 
                     <div class="span6">	
-                        <h4 style="color: #000000;"><span  style="margin-left: 410px">Check your recipe</span></h4> <hr>
+                        <h4 style="color: #000000;"><span  style="margin-left: 410px"></span></h4> <hr>
                     </div>
                     <div class="span6">
-                        <div class="alert alert-info element">
-                            <h4 class="">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;xxxxxxxxxxxxx</h4><br>
-                            <h4 class="">Category&nbsp;:xxxxxxxxxxxxx</h4><br>
-                            <h4 class="">Quntity&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;xxxxxxxxxxxxx</h4><br>
-                            <h4 class="">Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:xxxxxxxxxxxxxxxxxx</h4><br>
-                            <h5 class="">Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:xxxxx xxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx</h5>
-                            <h6 class=" cntr"> Check again your recipy</h6>
-                            <p class="cntr">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                                xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-
-
-                        </div>
-
-
+                        <img src="images/Chicken_Fajita_Quesadilla.png" height="80%" width="80%">
 
                     </div> 
                 </div> 

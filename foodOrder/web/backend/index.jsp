@@ -239,11 +239,7 @@
                         </div>
                     </div>
                 </div>
-                <%
-                    FacebookClient facebookClient = new DefaultFacebookClient("CAACEdEose0cBAESjVtZBGVo0WuZAIk1d4vLT0hysyA46Hn7Lv1YlZAFW1anEYpeRGF2ewlk92bZBgHSFrtQoW7kBdcsmBDNfYAFE3NOaSVbUUAvKzeBknr9L00JG0obcVZC0CUo1VdfLniwSsFT4rz4WK0E9MyAhAqX2Xh6SHqUr5Fbt7LZBD7JcRsTCPjRrCciK78l7ZCJoaPCTlhAzKWw");
-                    User user = facebookClient.fetchObject("me",User.class);
-                    Page pages = facebookClient.fetchObject("177685785756522",Page.class );
-                %>
+               
                                         
                 <div class="row">
                      <div class="col-lg-4 col-md-4">
@@ -254,7 +250,7 @@
                                         <i class="fa fa-thumbs-up fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><%=pages.getLikes()  %></div>
+                                        <div class="huge">12</div>
                                         <div>Likes</div>
                                     </div>
                                 </div>

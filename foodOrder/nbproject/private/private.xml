@@ -12,6 +12,7 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/FoodModifyServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/test.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/ClientController/ClientMailServlet.java</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/drinksModel.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/paAndRiceModel.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/User/User.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/account.jsp</file>
@@ -38,7 +39,6 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/CustomerServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/orderModel/SpecialOrderBean.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/cakeModel.jsp</file>
-            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/User/UserController.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/index.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/orderModel/SpecialOrderBL.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/siteadd.jsp</file>
@@ -48,6 +48,7 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/js/plugins/morris/morris.js</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/WEB-INF/web.xml</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/ClientController/SpecialOrderPlaceController.java</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/slider3.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/FoodPriceAddServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/managecls/DBConn.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/ClientModels/ClientMail.java</file>
@@ -62,9 +63,11 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/customer.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/ReportServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/OrderServlet.java</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/feedbackmodel.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/menu.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/monthincome.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/food.jsp</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/login.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/slider.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/order.jsp</file>
         </group>

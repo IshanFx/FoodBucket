@@ -28,7 +28,7 @@
                     <div class="thumbnail">
                         <div class="blockDtl">
                             <a href="#"><img src=" http://localhost:8080/images/<%=rst.getString(7) %>" alt=""></a>
-                            <h4><%=rst.getString(2) %>Cake</h4>
+                            <h4><%=rst.getString(2) %></h4>
                             <p>Price:Rs: <%=rst.getString(3) %> /= </p>
                             <p><%=rst.getString(4) %></p>
                             <p></p>
@@ -52,7 +52,7 @@
     
         
                             <a href="test.jsp"></a>
-       <%@include  file="Import/paAndRiceModel.jsp" %><!--meke div ekak wahila ne eka balanna--> 
+     
         
      
     </body>

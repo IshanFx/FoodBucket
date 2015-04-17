@@ -57,7 +57,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                            Manage order Details
-                            ${responceResult}
+                          
                         </div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs ">
@@ -65,9 +65,9 @@
                                 </li>
                                 <li class="" id="specialordertab"><a href="#special" data-toggle="tab">Special Order</a>
                                 </li>
-                                <li class=""><a href="#delivernormal" data-toggle="tab">Delivered Normal Order</a>
+                                <li class="" id="delivernormalordertab"><a href="#delivernormal" data-toggle="tab">Delivered Normal Order</a>
                                 </li>
-                                <li class=""><a href="#deliverspecial" data-toggle="tab">Delivered Special Order</a>
+                                <li class="" id="deliverspecialordertab"><a href="#deliverspecial" data-toggle="tab">Delivered Special Order</a>
                                 </li>
                             </ul>
                             
@@ -139,47 +139,10 @@
                                     <h4>Deliver Normal Order</h4>
                                     <div class="col-md-12">
                                         <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Order Id</th>
-                                                                <th>Category</th>
-                                                                <th>food</th>
-                                                                <th>Quantity</th>
-                                                                <th>Extra</th>
-                                                                <th>Deliver Date</th>
-                                                                <th>Address</th>
-                                                                <th>Order date</th>
-                                                                <th>Order time</th>
-                                                                <th>State</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <% 
-                                                        
-                                                        ResultSet noDeliver = no.getDeliverOrderDetails();
-                                                        %>
-                                                        <% while(noDeliver.next()) {%>
-                                                        <tr>
-                                                            <td><%=noDeliver.getString(1) %></td>
-                                                            <td><%=noDeliver.getString(2) %></td>
-                                                            <td><%=noDeliver.getString(3) %></td>
-                                                            <td><%=noDeliver.getString(4) %></td>
-                                                            <td><%=noDeliver.getString(5) %></td>
-                                                            <td><%=noDeliver.getString(6) %></td>
-                                                            <td><%=noDeliver.getString(7) %></td>  
-                                                            <td><%=noDeliver.getString(8) %><%=noDeliver.getString(9) %><%=noDeliver.getString(10) %></td>  
-                                                            <td><%=noDeliver.getString(11) %></td>  
-                                                            <td><%=noDeliver.getString(12) %></td>  
-                                                            
-                                                        </tr>
-                                                        <% } %>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                            <div id="normalorderdelivertable">
+                                                
                                             </div>
+                              
                                         </div>
                                     </div>
                                 </div>
@@ -190,48 +153,8 @@
                                     <h4>Deliver Special Order</h4>
                                     <div class="col-md-12">     
                                         <div class="panel panel-default">
-                                            <div class="panel-body">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                               
-                                                                <th>OrderId</th>
-                                                                <th>Category</th>
-                                                                <th>Description</th>
-                                                                <th>Quantity</th>  
-                                                                <th>Deliver Date</th>
-                                                                <th>Customer</th>
-                                                                <th>Address</th>
-                                                                <th>Order date</th>
-                                                                <th>Order time</th>
-                                                                <th>State</th>
-                                                               
-                                                            </tr>
-                                                        </thead>
-                                                        <% SpecialOrderBL special = new SpecialOrderBL(); 
-                                                            ResultSet specialRst = special.getDeliverOrderDetails();
-                                                        %>
-                                                        <tbody>
-                                                          <%  while(specialRst.next()) { %>
-                                                             <tr>
-                                                               
-                                                                 <th><%=specialRst.getString(1)%></th>
-                                                                <th><%=specialRst.getString(2)%></th>
-                                                                <th><%=specialRst.getString(3)%></th>
-                                                                <th><%=specialRst.getString(4)%></th>
-                                                                <th><%=specialRst.getString(5)%></th>
-                                                                <th><%=specialRst.getString(6)%></th>
-                                                                <th><%=specialRst.getString(7)%></th>
-                                                                <th><%=specialRst.getString(8)%>/ <%=specialRst.getString(9)%>/<%=specialRst.getString(10)%> </th>
-                                                                <th><%=specialRst.getString(11)%></th>
-                                                                <th><%=specialRst.getString(12)%></th>
-                                                               
-                                                            </tr>
-                                                            <% } %>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                            <div id="specialorderdelivertable">
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -300,6 +223,14 @@
     <script>
         $('#specialordertab').click(function(){
            $('#specialordertable').load('specialorder.jsp');
+        });
+        
+        $('#deliverspecialordertab').click(function(){
+           $('#specialorderdelivertable').load('specialorderdeliver.jsp');
+        });
+        
+        $('#delivernormalordertab').click(function(){
+           $('#normalorderdelivertable').load('normalorderdeliver.jsp');
         });
     </script>
     

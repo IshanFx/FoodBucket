@@ -12,8 +12,8 @@
         <title>JSP Page</title>
         <%@include file="Import/head.jsp" %>
         
-        <!-- <script src="http://maps.googleapis.com/maps/api/js"></script>
-        -->
+       <script src="http://maps.googleapis.com/maps/api/js"></script>
+      
         <style>
              body{
              background-size: 2500px}
@@ -85,14 +85,11 @@
                     <div class="span6" style="margin-top: -100px;">	
                         <h4><span>Contact us</span></h4> <hr>
                     </div>
+                    <div class="span6">
                     <div class="span3">
                         <h4>  <i class="icon-map-marker"></i></h4>
                         <h4>Address</h4>
-                        <p>xxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxx</p>
+                        <p><img src="images/Chicken_Fajita_Quesadilla.png" height="80%" width="80%"></p>
                     </div>
                     <div class="span3">
                         <h4> <i class="icon-phone"></i></h4>
@@ -123,7 +120,8 @@
                             xxxxxxxxxxxxxxxxxx
                             xxxxxxxxxxxxxx</p>
                     </div>
-
+                        
+                     </div>       
 
                 </div> 
             </div> 

@@ -4,6 +4,7 @@
     Author     : IshanFX
 --%>
 
+<%@page import="com.foodbucket.orderModel.NormalOrderBean"%>
 <%@page import="java.sql.Blob"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="com.food.managecls.DBConn"%>
@@ -19,7 +20,7 @@
         <title>JSP Page</title>
     </head>
     <% 
-            Object session1 = request.getSession().getAttribute("cart");
+            Object session1 = request.getSession().getAttribute("cartorder");
         
     %>
     <body>
@@ -27,18 +28,17 @@
           <%@include file="Import/navbar2.jsp" %>
           <div class="container" style="margin-top: 200px;">
             <% 
-            ArrayList<FoodBean> lis = new ArrayList<FoodBean>();
+            ArrayList<NormalOrderBean> lis = new ArrayList<NormalOrderBean>();
             lis = (ArrayList)session1;
             
-            for(FoodBean list : lis) {    %>
+            for(NormalOrderBean list : lis) {    %>
             <div class="row">
                 <li class="span3">
                     <div class="thumbnail">
                         <div class="blockDtl">
-                            <a href="#"><img src="themes/images/portfolio/<%=list.getFoodstatus() %> " ></a>
-                            <h4><%=list.getFoodId() %></h4>
-                            <p> <%=list.getFoodDesc() %> </p>
-                            
+                           
+                            <p> <%=list.getOrderQuantity()%> </p>
+                            <p> <%=list.getOrderFoodId()%> </p>
                         </div>
 
                     </div>

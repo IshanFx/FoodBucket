@@ -38,8 +38,8 @@ boolean isAvailable =false;
        String img = request.getParameter("image");
        Double price =Double.parseDouble(request.getParameter("price"));
        String name  = request.getParameter("name");
-     //  Integer extra1 =Integer.parseInt(request.getParameter("extra1"));
-      // Integer extra2 =Integer.parseInt( request.getParameter("extra2"));
+      // Integer extra1 =Integer.parseInt(request.getParameter("extra1"));
+     //  Integer extra2 =Integer.parseInt( request.getParameter("extra2"));
        
         
            
@@ -61,18 +61,8 @@ boolean isAvailable =false;
            
            }
        if(!isAvailable){
-//            if(extra1==null && extra1==null){
-//                extra1 = 0;
-//                extra2 = 0;
-//            }
-//            else if(extra1==null){
-//                extra1 = 0;
-//            }
-//            else if(extra2==null){
-//                extra2 = 0;
-//            }
-
-         //       price += extra2 + extra1;
+            
+              //  price += extra2 + extra1;
                 FoodBean products = new FoodBean();
                 products.setFoodName(name);
                 products.setFoodId(Integer.parseInt(id));
