@@ -47,7 +47,7 @@
                     <ul class="nav nav-tabs">
                       <li class="active"><a href="#tab1" data-toggle="tab">Dashboard</a></li>
                       <li><a href="#tab2" data-toggle="tab">Change Password</a></li>
-                      <li><a href="#tab3" data-toggle="tab">My Order</a></li>
+                      <li><a href="#tab3" data-toggle="tab" id="tb">My Order</a></li>
                       <li>${meassge}</li>
                     </ul>
                                  
@@ -161,6 +161,49 @@
                                 </form>                              
                           </div>  
                       </div>
+                              
+                                            
+                                            
+   <%String usernamei=""; %>
+                
+<%
+    Cookie[] cookiesi = request.getCookies();       
+    if(cookies!=null)
+    {
+        for(int i = 0; i < cookiesi.length; i++) 
+        { 
+            Cookie c = cookiesi[i];
+            if ("username".equals(c.getName()))
+            {                      
+             usernamei=(String)c.getValue();
+            }
+            else
+            {
+                 if(session.getAttribute("username")!=null)
+                {
+                usernamei=(String)session.getAttribute("username"); 
+                }
+                else
+                {
+                usernamei="";
+                }
+            }
+        } 
+    }
+    else
+    {
+        usernamei="";
+    }
+%>
+                                          
+                                                  
+<%
+ User user=new User();
+ ResultSet Nset=(ResultSet)user.GETNormalOderFood(usernamei);
+ %> 
+    
+<%ResultSet Sset=(ResultSet)user.GetSpecialOrderFood(usernamei);%> 
+
                         <div class="tab-pane fade" id="tab3">
                             <div class="tabbable"> <!-- Only required for left/right tabs -->
                                     <ul class="nav nav-tabs">
@@ -168,35 +211,42 @@
                                       <li><a href="#Special" data-toggle="tab">Special</a></li>
                                     </ul>
                                     <div class="tab-content">
-                                    <div class="tab-pane fade in active " id="Normal">                                       
+                                    <div class="tab-pane fade in active " id="Normal">                                         
                                             <ul class="thumbnails">
-                                                     <li class="span3">
-                                                         <div class="thumbnail">
+                                                <%while(Nset.next()){%>
+                                                     <li class="span3">                                                        
+                                                         <div class="thumbnail">                                                            
                                                              <div class="blockDtl">
                                                                  <img src="themes/images/portfolio/2.png" alt="">
-                                                                 <h4>Cake</h4>
-                                                                 <p>Extra</p>
-                                                                 <p>Quantity</p>
-                                                                 <p>Total</p>
+                                                                 <h4><%=Nset.getString(2)%></h4>
+                                                                 <p>Extra :<%=Nset.getString(3)%></p>
+                                                                 <p>Quantity :<%=Nset.getString(4)%></p>
+                                                                 <p>Total :<%=Nset.getString(5)%></p>
                                                                  <p></p>
-                                                             </div>
-                                                         </div>
+                                                             </div>                                                                
+                                                         </div>                                                       
                                                      </li>
+                                                     <%}%>
                                              </ul>
+                                        
                                     </div>
                                     <div class="tab-pane fade" id="Special">
                                         <ul class="thumbnails">
+                                            <%while(Sset.next()){%>
                                                      <li class="span3">
                                                          <div class="thumbnail">
                                                              <div class="blockDtl">
-                                                                 <h4>Cake</h4>
-                                                                 <p>Extra</p>
-                                                                 <p>Quantity</p>
-                                                                 <p>Description</p>
-                                                                 <p></p>
+                                                                 <h4><%=Sset.getString(1)%></h4>
+                                                                 <p>Description :<%=Sset.getString(2)%></p>
+                                                                 <p>Address :<%=Sset.getString(3)%></p>
+                                                                 <p>Delivery Date :<%=Sset.getString(4)%></p>
+                                                                 <p>State :<%=Sset.getString(5)%></p>
+                                                                 <p>Quantity :<%=Sset.getInt(6)%></p>
+                                                                 <p>Total :<%=Sset.getInt(7)%></p>
                                                              </div>
                                                          </div>
                                                      </li>
+                                            <%}%>
                                         </ul>
                                     </div>
                                     </div>

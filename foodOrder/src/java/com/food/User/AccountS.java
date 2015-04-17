@@ -26,8 +26,9 @@ public class AccountS extends HttpServlet {
         ResultSet set;
         PrintWriter out=response.getWriter();       
         set=user.GetAccountData(request.getParameter("parem1")); 
-        request.setAttribute("result",set);
+       request.setAttribute("result",set);
         request.getRequestDispatcher("account.jsp").forward(request, response);
+        
         
     }
  
