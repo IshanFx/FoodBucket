@@ -217,7 +217,7 @@
                                                      <li class="span3">                                                        
                                                          <div class="thumbnail">                                                            
                                                              <div class="blockDtl">
-                                                                 <img src="themes/images/portfolio/2.png" alt="">
+                                                                 <img src=" http://localhost:8080/images/<%=Nset.getString(1)%>" alt="">
                                                                  <h4><%=Nset.getString(2)%></h4>
                                                                  <p>Extra :<%=Nset.getString(3)%></p>
                                                                  <p>Quantity :<%=Nset.getString(4)%></p>
@@ -240,7 +240,6 @@
                                                                  <p>Description :<%=Sset.getString(2)%></p>
                                                                  <p>Address :<%=Sset.getString(3)%></p>
                                                                  <p>Delivery Date :<%=Sset.getString(4)%></p>
-                                                                 <p>State :<%=Sset.getString(5)%></p>
                                                                  <p>Quantity :<%=Sset.getInt(6)%></p>
                                                                  <p>Total :<%=Sset.getInt(7)%></p>
                                                              </div>

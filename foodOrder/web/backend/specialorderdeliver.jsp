@@ -20,7 +20,7 @@
                                                         <thead>
                                                             <tr>
                                                                
-                                                                <th>OrderId</th>
+                                                                <th>No</th>
                                                                 <th>Category</th>
                                                                 <th>Description</th>
                                                                 <th>Quantity</th>  
@@ -29,27 +29,28 @@
                                                                 <th>Address</th>
                                                                 <th>Order date</th>
                                                                 <th>Order time</th>
-                                                                <th>State</th>
+                                                                
                                                                
                                                             </tr>
                                                         </thead>
                                                         <% SpecialOrderBL special = new SpecialOrderBL(); 
                                                             ResultSet specialRst = special.getDeliverOrderDetails();
+                                                            int count4=1;
                                                         %>
                                                         <tbody>
                                                           <%  while(specialRst.next()) { %>
                                                              <tr>
                                                                
-                                                                 <td><%=specialRst.getString(1)%></td>
+                                                                 <td><%=count4++%></td>
                                                                 <td><%=specialRst.getString(2)%></td>
                                                                 <td><%=specialRst.getString(3)%></td>
                                                                 <td><%=specialRst.getString(4)%></td>
                                                                 <td><%=specialRst.getString(5)%></td>
                                                                 <td><%=specialRst.getString(6)%></td>
                                                                 <td><%=specialRst.getString(7)%></td>
-                                                                <td><%=specialRst.getString(8)%>/ <%=specialRst.getString(9)%>/<%=specialRst.getString(10)%> </td>
+                                                                <td><%=specialRst.getString(10)%>/ <%=specialRst.getString(9)%>/<%=specialRst.getString(8)%> </td>
                                                                 <td><%=specialRst.getString(11)%></td>
-                                                                <td><%=specialRst.getString(12)%></td>
+                                                                
                                                                
                                                             </tr>
                                                             <% } %>

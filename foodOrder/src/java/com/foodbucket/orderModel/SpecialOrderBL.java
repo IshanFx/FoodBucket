@@ -28,7 +28,7 @@ public class SpecialOrderBL  {
     private int day;
     private int year;
     private String time;
-
+    String myDate ;
     public SpecialOrderBL() {
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault()); 
             month= calendar.get(Calendar.MONTH) + 1;
@@ -39,6 +39,7 @@ public class SpecialOrderBL  {
             year = calendar.get(Calendar.YEAR);
             day = calendar.get(Calendar.DATE);
             time = sdf.format(cal.getTime());
+            myDate = day+"/"+month+"/"+year;
     }
    
 
@@ -46,7 +47,7 @@ public class SpecialOrderBL  {
        int chk = 0;
       int maxId = getLastOrderId();
       maxId++;
-      String sql1 = "INSERT INTO order_tbl VALUES('"+maxId+"','"+year+"','"+month+"','"+day+"','"+time+"','1')"; //nee to change account id
+      String sql1 = "INSERT INTO order_tbl VALUES('"+maxId+"','"+year+"','"+month+"','"+day+"','"+time+"','"+order.getOrdCusId()+"')"; //nee to change account id
       // String sql1 = "INSERT INTO order_tbl VALUES(8,2015,4,12,12.4,1)";
       // String sql2 = "INSERT INTO specialord_tbl VALUES('sss','sss','ddd','12','wwww','12',8,'P','0.0')";
        String sql2 = "INSERT INTO specialord_tbl VALUES('"+order.getOrdCusName()+"','"+order.getOrdAddress()+"','"+order.getOrdFoodCategory()+"','"+order.getOrdDeliverDate()+"','"+order.getOrdDesc()+"','"+order.getOrdQuantity()+"','"+maxId+"','P','0.0')";
@@ -79,6 +80,7 @@ public class SpecialOrderBL  {
     }
 
     public ResultSet getOrderDetails(){
+        
        ResultSet rst = null;
        String sql = "SELECT o.orderid,so.ordfoodcate,so.orddesc,so.orderquantity,so.orddeliverdate,so.ordercusname,so.ordaddress,o.orderyear,o.ordermonth,o.orderday,o.ordertime,so.ordstate,so.ordTotal FROM order_tbl o,specialord_tbl so WHERE o.orderid=so.orderid AND so.ordstate='P' ";
        try {
@@ -91,8 +93,9 @@ public class SpecialOrderBL  {
      
 
     public int changeOrderStatus(SpecialOrderBean order){
+        SpecialOrderBL sp = new SpecialOrderBL();
          int chk = 0;
-        String sql = "UPDATE specialord_tbl set ordstate='D' WHERE orderid='"+order.getOrdId()+"'";
+        String sql = "UPDATE specialord_tbl set ordstate='D',orddeliverdate='"+myDate+"' WHERE orderid='"+order.getOrdId()+"'";
         try {
              chk = new DBConn().executeQuery(sql); 
         } catch (Exception e) {

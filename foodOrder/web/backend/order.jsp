@@ -81,34 +81,31 @@
                                                 <table class="table table-striped table-bordered table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>Order Id</th>
+                                                            <th>No</th>
                                                             <th>Category</th>
                                                             <th>food</th>
                                                             <th>Quantity</th>
-                                                            <th>Extra</th>
-                                                            <th>Deliver Date</th>
                                                             <th>Address</th>
                                                             <th>Order date</th>
                                                             <th>Order time</th>
-                                                            <th>State</th>
+                                                            <th></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <% NormalOrderBL no =new NormalOrderBL();
                                                            ResultSet rst = no.getOrderDetails();
+                                                           int count=1;
                                                         %>
                                                         <% while(rst.next()) {%>
                                                         <tr>
-                                                            <td><%=rst.getString(1) %></td>
+                                                            <td><%=count++ %></td>
                                                             <td><%=rst.getString(2) %></td>
                                                             <td><%=rst.getString(3) %></td>
-                                                            <td><%=rst.getString(4) %></td>
-                                                            <td><%=rst.getString(5) %></td>
-                                                            <td><%=rst.getString(6) %></td>
+                                                            <td><%=rst.getString(4) %></td>                                                           
                                                             <td><%=rst.getString(7) %></td>  
-                                                            <td><%=rst.getString(8) %><%=rst.getString(9) %><%=rst.getString(10) %></td>  
+                                                            <td><%=rst.getString(10) %>/<%=rst.getString(9) %>/<%=rst.getString(8) %></td>  
                                                             <td><%=rst.getString(11) %></td>  
-                                                            <td><%=rst.getString(12) %></td>  
+                                                            
                                                             <td><a data-toggle="modal" class="btn btn-success col-md-12 changestatbtn" onclick="normalOrderChange(<%=rst.getString(1) %>,<%=rst.getString(13) %>)">Deliver</a></td>
                                                         </tr>
                                                         <% } %>

@@ -62,8 +62,8 @@
                                 </li>
                                 <li class="" id="emailtab"><a href="#message" data-toggle="tab">Send Message</a>
                                 </li>
-                                <li class=""><a href="#records" data-toggle="tab">LogIn Records</a>
-                                </li>
+                               <!-- <li class=""><a href="#records" data-toggle="tab">LogIn Records</a>
+                                </li>-->
                             </ul>
 
                             <div class="tab-content">
@@ -126,10 +126,10 @@
                                     </div>
                                 </div>
                             <!--customer login records start -->
-                                  <div class="tab-pane fade " id="records">
+                            <!--      <div class="tab-pane fade " id="records">
                                     <h4>Login Records</h4>
                                     <div class="col-md-12">
-                          <!--   Kitchen Sink -->
+                          
                                             <div class="panel panel-default">
                                                   <div class="panel-body">
                                                         <div class="table-responsive">
@@ -156,9 +156,9 @@
                                                         </div>
                                                     </div>  
                                             </div>
-                                                 <!-- End  Kitchen Sink -->
+                                                
                                             </div>
-                                        </div>
+                                        </div> -->
                             <!--customer login records end -->
                                 
                             </div>

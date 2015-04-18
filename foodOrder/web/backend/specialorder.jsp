@@ -21,35 +21,36 @@
                         <thead>
                             <tr>
 
-                                <th>Order Id</th>
+                                <th>No</th>
                                 <th>Category</th>
                                 <th>Description</th>
-                                <th>Quantity</th>
-                                <th>Deliver Date</th>
+                                <th>Quantity</th>                               
                                 <th>Customer Name</th>                                                            
                                 <th>Address</th>
                                 <th>Order date</th>
                                 <th>Order time</th>
-                                <th>State</th>
+                                
                                 <th>Total</th>
+                                <th></th> 
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <% SpecialOrderBL specialo = new SpecialOrderBL(); %>
-                            <% ResultSet rstso = specialo.getOrderDetails(); %>
+                            <% ResultSet rstso = specialo.getOrderDetails();
+                                int count3=1;
+                            %>
                             <% while(rstso.next()){ %>
                             <tr>
-                                <td><%=rstso.getString(1)%></td>
+                                <td><%=count3++%></td>
                                 <td><%=rstso.getString(2)%></td>
                                 <td><%=rstso.getString(3)%></td>
-                                <td><%=rstso.getString(4)%></td>
-                                <td><%=rstso.getString(5)%></td>
+                                <td><%=rstso.getString(4)%></td>                                
                                 <td><%=rstso.getString(6)%></td>
                                 <td><%=rstso.getString(7)%></td>
-                                <td><%=rstso.getString(8)%><%=rstso.getString(9)%><%=rstso.getString(10)%></td>
+                                <td><%=rstso.getString(10)%>/<%=rstso.getString(9)%>/<%=rstso.getString(8)%></td>
                                 <td><%=rstso.getString(11)%></td>
-                                <td><%=rstso.getString(12)%></td>
+                                
                                 <td><%=rstso.getString(13)%></td>
                                 <td><a data-toggle="modal" class="btn btn-info col-md-12 changestatbtn" onclick="SpecialOrderPriceAdd(<%=rstso.getString(1) %>)">Add Price</a></td>
                                 <td><a data-toggle="modal" class="btn btn-success col-md-12 changestatbtn" onclick="specialOrderChange(<%=rstso.getString(1) %>)">Deliver</a></td>

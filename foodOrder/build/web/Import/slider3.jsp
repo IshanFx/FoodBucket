@@ -9,7 +9,7 @@
 <style>
     #slider div.sliderInner {
     width: 1200px!important;
-    height: 400px;
+    height: 500px;
 }
     
 #sliderFrame {
@@ -24,7 +24,7 @@
     margin: 0px auto;
     transform: translate3d(0px, 0px, 0px);
     width: 1200px!important;
-   
+   height: 500px;
 }
 img{   border-radius: 500px;}
 
@@ -38,10 +38,10 @@ img{   border-radius: 500px;}
     
 <div id="sliderFrame" style="margin-top: 150px;">
     <div id="slider">
-            <img src="themes/images/slider/fd1.png"  />
-            <img src="themes/images/slider/fd2.jpg"  />
-            <img src="themes/images/slider/f1.jpg" />
-            <img src="themes/images/slider/fd4.jpg" />
+            <img src="themes/images/slider/s11.png"  />
+            <img src="themes/images/slider/s22.png"  />
+            <img src="themes/images/slider/s33.png" />
+            <img src="themes/images/slider/s44.png" />
         </div>
         <!--Custom navigation buttons on both sides-->
         <div class="group1-Wrapper">

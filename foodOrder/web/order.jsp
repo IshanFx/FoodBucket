@@ -31,7 +31,7 @@
             for(FoodBean list : lis) {    %>
             <form action="CartRemoveServlet" method="POST"> 
                    
-            <div class="row" >
+                <div class="row"  >
                 <!--register model-->           
                 <div class="span3" >
                     <form class="form-horizontal">
@@ -63,7 +63,7 @@
                     <div class="control-group">
                         <label class="control-label" for="inputPassword"></label>
                         <div class="controls">
-                            <span class="badge badge-warning" style=" font-size: 20px;padding: 10px;">price Rs:<span id="<%=list.getFoodId() %>"><%=list.getFoodPrice() %></span> /=</span>
+                            <span class="badge badge-warning" style=" font-size: 20px;padding: 10px;">Price Rs:<span id="<%=list.getFoodId() %>"><%=list.getFoodPrice() %></span> /=</span>
                             <input type="text" class="hidden piecequatity" name="piecequatity"  value="<%=list.getFoodPrice() %>" > 
                             <input type="text" id="f<%=list.getFoodId() %>" class="hidden" value="<%=list.getFoodPrice() %>" >
                         </div>
@@ -80,21 +80,23 @@
             </div>
                 
             </form>
-               <% } %>     
+                    <hr>
+               <% } %>  
+               <hr>
             <div class="row ">
                 <form >
-                    <div class="control-group col-md-4 right">      
-                        <div class="controls span3" style="float:right;" >
-                               <span class="badge badge-warning" style=" font-size: 20px;padding: 10px;">Total Rs:<span id="totalprice"></span> /=</span>
+                    <div class="control-group col-md-12 right label label-success">      
+                        <div class="controls span12" style="float:right;" >
+                            <span class="label label-success" style=" font-size: 25px;padding:25px;">Total Rs:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="totalprice"></span> /=</span>
                         </div>
                     </div>
                 </form>  
             </div>
             <div class="row ">
-                <form action="NormalOrderPlaceController" method="POST">
+                <form >
                     <div class="control-group col-md-10 right">      
                         <div class="controls span3" style="float:right;" >
-                            <button class="btn btn-info cntr input-xlarge" style=" font-size: 20px;"><i class="icon-money"></i> Place Order</button> 
+                            <button class="btn btn-info cntr input-xlarge" href="#payment" data-toggle="modal" style="font-size: 20px;"><i class="icon-money"></i> Confirm Order</button> 
                         </div>
                     </div>
                 </form>  
@@ -115,7 +117,7 @@
                             type: 'POST',
                             data: myOrderArray,
                             success:function (data){
-                                alert('added');
+                               
                               
                             }
                         });
@@ -143,9 +145,10 @@
                
 
 
-               <a href="test.jsp" >test</a>
+              
         <div style="margin-top: 800px">
             <%@include file="Import/footer.jsp" %>
+            <%@include file="Import/payment.jsp" %>
             </div>
 
                 </body>

@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class SpecialOrderPlaceController extends HttpServlet {
@@ -27,6 +28,7 @@ public class SpecialOrderPlaceController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
         String cusname = request.getParameter("customername");
         String category = request.getParameter("categoryselect");
@@ -40,6 +42,7 @@ public class SpecialOrderPlaceController extends HttpServlet {
         String message ="";
         
         specialOrder.setOrdCusName(cusname);
+        specialOrder.setOrdCusId(Integer.parseInt(session.getAttribute("userid").toString()));
         specialOrder.setOrdFoodCategory(category);
         specialOrder.setOrdQuantity(quantity);
         specialOrder.setOrdDeliverDate(date);

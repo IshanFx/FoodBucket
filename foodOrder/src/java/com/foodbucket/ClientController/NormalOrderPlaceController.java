@@ -26,12 +26,20 @@ public class NormalOrderPlaceController extends HttpServlet {
       PrintWriter out = response.getWriter();
       ArrayList cartList = new ArrayList();
       ArrayList quantityList = new ArrayList();
-      
+      int id =Integer.parseInt(nOrderSession.getAttribute("userid").toString());
+      String address = request.getParameter("address");
       cartList =(ArrayList) nOrderSession.getAttribute("cart");
       quantityList =(ArrayList) nOrderSession.getAttribute("cartorder");
       NormalOrderBL order = new NormalOrderBL();
-      int chk  = order.addOrder(cartList,quantityList);
-      out.println(chk);
+      int chk  = order.addOrder(cartList,quantityList,id,address);
+      
+      if(chk>0){
+          
+      nOrderSession.setAttribute("cart",null);
+      nOrderSession.setAttribute("cartorder",null);
+      
+      }
+      response.sendRedirect("index.jsp");
       
     }
 

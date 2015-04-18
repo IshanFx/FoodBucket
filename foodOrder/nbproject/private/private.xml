@@ -3,7 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/ClientController/NormalOrderPlaceController.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/reportModel/Report.java</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/managecls/Customer.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/js/plugins/morris/morris-data.js</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/specialorder.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/sweets.jsp</file>
@@ -13,8 +15,11 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/test.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/ClientController/ClientMailServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/drinksModel.jsp</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/User/AccountS.java</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/ClientController/NormalOrderCartController.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/paAndRiceModel.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/User/User.java</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/managecls/Administrator.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/account.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/orderModel/NormalOrderBL.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/User/LogoutS.java</file>
@@ -25,17 +30,21 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/foodModel/FoodBL.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/navbar2.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/cusAdminModel/CustomerMailController.java</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/normalorder.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/head.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/pasta.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/FoodServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/managecls/User.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/email.jsp</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/User/RegisterS.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/menu.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/footer.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/report.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/pizza.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/User/LoginS.java</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/normalorderdeliver.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/order.jsp</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/payment.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/CustomerServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/foodbucket/orderModel/SpecialOrderBean.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/cakeModel.jsp</file>
@@ -44,6 +53,7 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/siteadd.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/test.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/cake.jsp</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/usercheck.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/myres.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/js/plugins/morris/morris.js</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/WEB-INF/web.xml</file>
@@ -64,6 +74,7 @@
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/ReportServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/src/java/com/food/adminservlet/OrderServlet.java</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/Import/feedbackmodel.jsp</file>
+            <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/specialorderdeliver.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/menu.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/monthincome.jsp</file>
             <file>file:/E:/Software%20Projects/FoodBucket/foodOrder/web/backend/food.jsp</file>

@@ -19,35 +19,36 @@
                                                     <table class="table table-striped table-bordered table-hover">
                                                         <thead>
                                                             <tr>
-                                                                <th>Order Id</th>
+                                                                <th>No</th>
                                                                 <th>Category</th>
                                                                 <th>food</th>
                                                                 <th>Quantity</th>
-                                                                <th>Extra</th>
+                                                                
                                                                 <th>Deliver Date</th>
                                                                 <th>Address</th>
                                                                 <th>Order date</th>
                                                                 <th>Order time</th>
-                                                                <th>State</th>
+                                                                
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                         <% 
                                                          NormalOrderBL no =new NormalOrderBL();
                                                         ResultSet noDeliver = no.getDeliverOrderDetails();
+                                                        int count2=1;
                                                         %>
                                                         <% while(noDeliver.next()) {%>
                                                         <tr>
-                                                            <td><%=noDeliver.getString(1) %></td>
+                                                            <td><%=count2++ %></td>
                                                             <td><%=noDeliver.getString(2) %></td>
                                                             <td><%=noDeliver.getString(3) %></td>
-                                                            <td><%=noDeliver.getString(4) %></td>
+             
                                                             <td><%=noDeliver.getString(5) %></td>
                                                             <td><%=noDeliver.getString(6) %></td>
                                                             <td><%=noDeliver.getString(7) %></td>  
-                                                            <td><%=noDeliver.getString(8) %><%=noDeliver.getString(9) %><%=noDeliver.getString(10) %></td>  
+                                                            <td><%=noDeliver.getString(10) %>/<%=noDeliver.getString(9) %>/<%=noDeliver.getString(8) %></td>  
                                                             <td><%=noDeliver.getString(11) %></td>  
-                                                            <td><%=noDeliver.getString(12) %></td>  
+                                                            
                                                             
                                                         </tr>
                                                         <% } %>

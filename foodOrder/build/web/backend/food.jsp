@@ -130,7 +130,7 @@
                                                     
                                                 </div>
                                                 <div class="panel-body">
-                                                    <div id="morris-donut-chart"></div>
+                                                 
                                                     
                                                 </div>
                 
@@ -165,7 +165,7 @@
                                                                         <th>Price</th>
                                                                         <th>Category</th>
                                                                         <th>Description</th>
-                                                                        <th>Status</th>
+                                                                       
                                                                         <th></th>
                                                                         <th></th>
                                                                     </tr>
@@ -181,7 +181,7 @@
                                                                         <td><%=rst.getString(3) %></td>
                                                                         <td><%=rst.getString(6) %></td>
                                                                         <td><%=rst.getString(4) %></td>
-                                                                        <td><%=rst.getString(5) %></td>
+                                                                       
                                                                         <td><a data-toggle="modal" class="btn btn-success col-md-12 mybtn" onclick="myfunc(<%=rst.getString(1) %>)">Modify</a></td> 
                                                                         <td><a  data-toggle="modal" class="btn btn-danger col-md-12 removebtn" onclick="removeFunction(<%=rst.getString(1)%>)">Remove</a></td>
                                                                     </tr>
@@ -340,28 +340,7 @@
     <script src="js/plugins/morris/morris-data.js"></script>
     
     
-    <script>
-        function doechart(){
-            Morris.Donut({
-        element: 'morris-donut-chart',
-        data: [{
-            label: "Sweets",
-            value: 89
-        }, {
-            label: "Bun",
-            value: 100
-        },{
-            label: "Cake",
-            value: 40
-        },{
-            label: "Bread",
-            value: 50
-        },],
-        resize: true
-    });
-        }
-        doechart();
-    </script>
+    
 </body>
 
 </html>

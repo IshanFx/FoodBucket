@@ -24,9 +24,10 @@
 
     </head>
     <body>
+        <%@include file="Import/usercheck.jsp" %> %>
         <%@include  file="Import/navbar2.jsp" %>
-
-
+        
+        
         <div class="container">
 
 
@@ -128,7 +129,7 @@
                 type: 'POST',
                 data: $('#myreceipeform').serialize(),
                 success:function(data){
-                    alert("Send Success");
+                    alert("Order Place Success");
                   
                 }
             });

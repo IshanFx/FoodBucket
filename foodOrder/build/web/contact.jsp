@@ -49,7 +49,7 @@
             <div class="row">	
 
                 <div id="contactSection">
-                    <div class="span6" style="margin-top: -100px;">
+                    <div class="span6 " style="margin-top: -100px;">
 
                         <form class="form" id="contactform">
                             <fieldset>
@@ -85,40 +85,24 @@
                     <div class="span6" style="margin-top: -100px;">	
                         <h4><span>Contact us</span></h4> <hr>
                     </div>
-                    <div class="span6">
+                    <div class="span6 " >
+                    
                     <div class="span3">
-                        <h4>  <i class="icon-map-marker"></i></h4>
-                        <h4>Address</h4>
-                        <p><img src="images/Chicken_Fajita_Quesadilla.png" height="80%" width="80%"></p>
+                        <h3 class="icon-food">&nbsp;&nbsp; Borella</h3>
+                        <h4 style="color: #002a80"><i class="icon-phone">&nbsp;&nbsp;011-331-3123</i></h4>
+                        <p style="color: #002a80;font-size: 17px;font-weight: bold;">N09, Perera Road,Colombo 8</p>
                     </div>
+                       
                     <div class="span3">
-                        <h4> <i class="icon-phone"></i></h4>
-                        <h4>Phone</h4>
-                        <p>xxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxx</p>
+                        <h3 class="icon-food">&nbsp;&nbsp; Nugegoda</h3>
+                        <h4 style="color: #002a80;"><i class="icon-phone">&nbsp;&nbsp;011-311-8889</i></h4>
+                        <p style="color: #002a80;font-size: 17px;font-weight: bold;">N0 27, High level Road,Colombo 5</p>
                     </div>
 
                     <div class="span3">
-                        <h4> <i class="icon-globe"></i></h4>
-                        <h4>Web</h4>
-                        <p>xxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxx</p>
-                    </div>
-
-                    <div class="span3">
-                        <h4> <i class="icon-envelope"></i></h4>
-                        <h4>Email</h4>
-                        <p>xxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxxxxxx
-                            xxxxxxxxxxxxxx</p>
+                        <h3 class="icon-food">&nbsp;&nbsp; Galle</h3>
+                        <h4 style="color: #002a80"><i class="icon-phone">&nbsp;&nbsp;041-567-4421</i></h4>
+                         <p style="color: #002a80;font-size: 17px;font-weight: bold;">N0 80, Densil Road,Galle</p>
                     </div>
                         
                      </div>       

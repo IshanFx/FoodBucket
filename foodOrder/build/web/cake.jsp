@@ -15,6 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%@include file="Import/usercheck.jsp" %> %>
         <%@include file="Import/head.jsp" %>
             <%@include file="Import/navbar2.jsp" %>
             <%

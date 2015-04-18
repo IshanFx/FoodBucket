@@ -214,35 +214,12 @@
                         </div>
                     </div>
                     
-                    
+                    <% FacebookClient facebookClient = new DefaultFacebookClient("CAAV5M8BD48ABAHOSYPrnd2oSvmeYUOPLlQU93IynOez2vGZC229h9yzJgmEpWaZAc2DRooDZCgahixoyv7NHOBLZCzwIxvSdkZB1jPHen3z0pYyS2d6SMNgZBwRb9LtCYUZCF5kYmsVijoBxGCgFkojFObpG5qkJTrrTtPbJqV5ZBuRLNkIX3BZCzVnkI4r9xN8WiX0wWv9qJACxAFUm9MZBb9");
+                        //User user = facebookClient.fetchObject("me",User.class);
+                       Page pages = facebookClient.fetchObject("1460216490935672",Page.class);
+                        %>
                     
                     <div class="col-lg-4 col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-heart fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Site Hits</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-               
-                                        
-                <div class="row">
-                     <div class="col-lg-4 col-md-4">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div class="row">
@@ -250,7 +227,7 @@
                                         <i class="fa fa-thumbs-up fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
+                                        <div class="huge"><%=pages.getLikes() %></div>
                                         <div>Likes</div>
                                     </div>
                                 </div>
@@ -264,6 +241,11 @@
                             </a>
                         </div>
                     </div>   
+                </div>
+               
+                                        
+                <div class="row">
+                     
                 </div>
                 <!-- /.row -->
                 <hr/>

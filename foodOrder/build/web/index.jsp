@@ -50,9 +50,9 @@
         <div id="welcomeSection"> 
             <div class="container cntr" style="margin-top: -30px">
 
-                <h2 style="color: #ffffff;">Welcome to Seen Saal</h2>
-                <p style="color: #ffffff; font-family: monospace; font-size: 16px"><b>
-                        Vivamus commodo placerat libero, eget pulvinar felis lobortis in. Curabitur ac enim nibh. Cras in odio nisi. Fusce et augue velit. Nulla convallis, ipsum vitae tristique pretium, sapien odio viverra quam, eget mollis diam risus ut mi. Nullam ultrices ornare nisl, sagittis ullamcorper dolor rutrum vitae. Sed accumsan mauris eget elit dictum vitae dapibus nisl [...]
+                <h2 style="color: #ee5f5b;font-family:Segoe Print;">Welcome to Food Bucket</h2>
+                <p style="color: #000000; font-family:Segoe Print; font-size: 20px;"><b>
+                        <span style="color: #FC3C00;" class="icon-food"></span> Hai! Food bucket user. What do you need? <span style="color: #FC3C00;">Yummy food</span> for party or for home. Hurry up order online and get your foods on door steps
                     </b></p>
             </div>
         </div>
@@ -66,53 +66,51 @@
 
                         <div class="thumbnail">
 
-                            <h4>Order foods</h4>
+                            <h3>Order</h3>
 
-                            <img src="themes/images/home/ins1.png" style=" width: 370px;height: 150px;">
-                            <a href="#"> More detail</a><p></p>
+                            <img src="themes/images/home/h2.png" style=" width: 370px;height: 200px;">
+                           
                         </div>
                         <br>
 
                         <div class="thumbnail">
 
-                            <h4>we are here</h4>
-                         <img src="themes/images/home/ins5.png" style=" width: 370px;height: 150px;">
-                            <a href="#"> More detail</a><p></p>
+                            <h3>Menu</h3>
+                         <img src="themes/images/home/food.png" style=" width: 370px;height: 200px;">
+                            
                         </div>
                     </div>
                     <div class="span4">
 
 
                         <div class="thumbnail">
-                            <h4 >Our Menu</h4>
-                            <div style=" width: 370px;height: 150px;">   
-                              
-                            </div>                       
-                            <a href="#"> More detail</a><p></p>
+                            <h3 >Deliver</h3>
+                           <img src="themes/images/home/h1.png" style=" width: 370px;height: 200px;">       
+                           
                         </div>
                         <br>
 
                         <div class=" thumbnail">
-                            <h4>User Account</h4>
-                            <img src="themes/images/home/ins6.png" style=" width: 370px;height: 150px;">
-                            <a href="#"> More detail</a><p></p>
+                            <h3>Account</h3>
+                            <img src="themes/images/home/user.png" style=" width: 370px;height: 200px;">
+                            
                         </div>
                     </div>
                     <div class="span4">
 
                         <div class="thumbnail">
 
-                            <h4>My recipy</h4>
+                            <h3>Eat</h3>
 
-                            <img src="themes/images/home/ins4.png" style=" width: 370px;height: 150px;">
-                            <a href="#"> More detail</a><p></p>
+                            <img src="themes/images/home/h3.png" style=" width: 370px;height: 200px;">
+                            
                         </div>
                         <br>
                         <div class="thumbnail">
 
-                            <h4>Who we are?</h4>
-                            <img src="themes/images/home/ins7.png" style=" width: 370px;height: 150px;">
-                            <a href="#"> More detail</a><p></p>
+                            <h3>Who we are?</h3>
+                            <img src="themes/images/home/h4.png" style=" width: 370px;height: 200px;">
+                            
                         </div>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ public class NormalOrderBL {
     int year;
     int day;
     String time;
-    
+    String myDate;
     public NormalOrderBL(){
          Calendar calendar = Calendar.getInstance(TimeZone.getDefault()); 
             month= calendar.get(Calendar.MONTH) + 1;
@@ -41,15 +41,16 @@ public class NormalOrderBL {
             year = calendar.get(Calendar.YEAR);
             day = calendar.get(Calendar.DATE);
             time = sdf.format(cal.getTime());
+             myDate = day+"/"+month+"/"+year;
     }
 
-    public int addOrder(ArrayList<FoodBean> cartList,ArrayList<NormalOrderBean> quantityList) {
+    public int addOrder(ArrayList<FoodBean> cartList,ArrayList<NormalOrderBean> quantityList,int userid,String address) {
            int chk = 0;
         try {
          
         int maxId = getLastOrderId()+1;
         Double total = 0.0;
-        String sql1 = "INSERT INTO order_tbl VALUES('"+maxId+"','"+year+"','"+month+"','"+day+"','"+time+"','1')";
+        String sql1 = "INSERT INTO order_tbl VALUES('"+maxId+"','"+year+"','"+month+"','"+day+"','"+time+"','"+userid+"')";
         stmt = DBConn.dbConn().createStatement();
         chk = stmt.executeUpdate(sql1);
         for(FoodBean food : cartList){
@@ -63,7 +64,7 @@ public class NormalOrderBL {
                }
            }
            total = price * quantity;
-           String sql2 = "INSERT INTO normalord_tbl VALUES('"+quantity+"','"+total+"','P','ssss','"+maxId+"','"+foodId+"','asdasd','1/1/1')";
+           String sql2 = "INSERT INTO normalord_tbl VALUES('"+quantity+"','"+total+"','P','ssss','"+maxId+"','"+foodId+"','"+address+"','1/1/1')";
             stmt = DBConn.dbConn().createStatement();
             chk += stmt.executeUpdate(sql2);       
         }
@@ -95,7 +96,7 @@ public class NormalOrderBL {
         
         ResultSet rst = null;
         
-        String sql = "SELECT o.orderid,f.foodcategory,f.foodname,no.ordquantity,no.orderextra,no.orddeliverdate,no.orderaddress,o.orderyear,o.ordermonth,o.orderday,o.ordertime,no.orderstate,f.foodid FROM food_tbl f,normalord_tbl no,order_tbl o WHERE o.orderid=no.orderid AND no.foodid=f.foodid AND no.orderstate='P' ";
+        String sql = "SELECT o.orderid,f.foodcategory,f.foodname,no.ordquantity,no.orderextra,no.orddeliverdate,no.orderaddress,o.orderyear,o.ordermonth,o.orderday,o.ordertime,no.orderstate,f.foodid FROM food_tbl f,normalord_tbl no,order_tbl o WHERE o.orderid=no.orderid AND no.foodid=f.foodid AND no.orderstate='P' ORDER BY no.orderid ";
         try {
             rst = new DBConn().selectQuery(sql);
         } 
@@ -108,8 +109,8 @@ public class NormalOrderBL {
 
     public int changeOrderStatus(NormalOrderBean order) {
         int chk = 0;
-        
-        String sql = "UPDATE normalord_tbl set orderstate='D' WHERE orderid='"+order.getOrderId()+"' AND foodid='"+order.getOrderFoodId()+"'";
+        NormalOrderBL no  = new NormalOrderBL();
+        String sql = "UPDATE normalord_tbl set orderstate='D',orddeliverdate='"+myDate+"' WHERE orderid='"+order.getOrderId()+"' AND foodid='"+order.getOrderFoodId()+"'";
         try {
             chk =new DBConn().executeQuery(sql); 
         } 
