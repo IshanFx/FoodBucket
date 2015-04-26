@@ -67,4 +67,44 @@ public class ClientMail {
 			throw new RuntimeException(e);
 		}
     }
+     public void sendEmailForgetPass(String name,String mailAddress,String subject,String messageBody){
+                ResultSet rst = null;
+                ArrayList<String> list = new ArrayList<String>();
+                final String username = "ishantuf@gmail.com";
+		final String password = "nvidiagtx680"; 
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		//props.put("mail.smtp.starttls.enable", "true"); // Uncomment, if you want to use TLS.
+		props.put("mail.smtp.host", "smtpcorp.com");
+		props.put("mail.smtp.port", "25"); // 8025, 587 and 25 can also be used. 
+		Session session = Session.getInstance(props,
+		  new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		  }); 
+		try {
+                    Message message = new MimeMessage(session);
+                    Multipart mp = new MimeMultipart("alternative");
+                    BodyPart textmessage = new MimeBodyPart();
+                    BodyPart htmlmessage = new MimeBodyPart();
+
+                        textmessage.setText("It is a text message \n");
+			
+			htmlmessage.setContent("Name :" +name +"<br>"+"Email :"+ mailAddress +"<br>"+messageBody, "text/html");
+                        
+			mp.addBodyPart(textmessage);
+			mp.addBodyPart(htmlmessage);
+			message.setFrom(new InternetAddress("info@foodbucket.com"));
+			message.setRecipients(Message.RecipientType.TO,
+				InternetAddress.parse(mailAddress));
+			message.setSubject(subject);
+			message.setContent(mp); 
+			Transport.send(message); 
+         
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+    }
 }

@@ -43,7 +43,7 @@ public class ForgotPasswordS extends HttpServlet {
         if(email.equals(request.getParameter("email")))
         {
           ClientMail mail=new ClientMail();
-          mail.sendEmail(request.getParameter("user"),email,"Food Bucket Forgot password",pass);  
+          mail.sendEmailForgetPass(request.getParameter("user"),email,"Food Bucket Forgot password",pass);  
           response.sendRedirect("index.jsp");
         }
         else
