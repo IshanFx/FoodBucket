@@ -14,6 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+         <%@include file="logcheck.jsp" %>
                       <div class="panel-body">
                                                 <div class="table-responsive">
                                                     <table class="table table-striped table-bordered table-hover">

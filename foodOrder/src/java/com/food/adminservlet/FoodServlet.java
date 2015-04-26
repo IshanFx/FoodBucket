@@ -37,7 +37,7 @@ import org.apache.commons.io.output.*;
 public class FoodServlet extends HttpServlet {
     private boolean isMultipart;
    private String filePath;
-   private int maxFileSize = 100 * 1024;
+   private int maxFileSize = 200 * 1024;
    private int maxMemSize = 4 * 1024;
    private File file ;
    String fileName="";

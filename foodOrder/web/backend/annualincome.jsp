@@ -25,6 +25,7 @@
     
     </head>
     <body>
+        
         <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover">
                 <% Report report = new Report();

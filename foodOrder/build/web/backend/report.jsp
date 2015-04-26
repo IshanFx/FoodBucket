@@ -43,7 +43,7 @@
 </head>
 
 <body>
-
+    <%@include file="logcheck.jsp" %>
     <div id="wrapper">
         <!-- Navigation -->
     <%@include file="menu.jsp" %>
@@ -60,7 +60,7 @@
                        <div class="col-md-12 col-sm-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Tabs
+                           Reports
                         </div>
                         <div class="panel-body">
                             <ul class="nav nav-tabs">

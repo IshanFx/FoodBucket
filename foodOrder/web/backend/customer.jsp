@@ -37,7 +37,7 @@
 </head>
 
 <body>
-
+     <%@include file="logcheck.jsp" %>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -188,7 +188,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    <script>
+   <!-- <script>
             
              $('#customMailForm').submit(function(){
                 var mail = $('#emailTo').val();
@@ -198,14 +198,11 @@
                     type: 'POST',
                     dataType: 'json',
                     data: $('#customMailForm').serialize(),
-                    success: function (data) {
-                        if(data.chk){
-                            alert('success');
-                        }
-                        else
-                        {
-                            alert('asdsdad');
-                        }
+                    success: function (data) {                       
+                            alert('Mail send success');  
+                    },
+                    error:function (msg){
+                        alert("Not send.Try again");
                     }
                    
                     
@@ -216,7 +213,7 @@
  
       
     </script>
-   
+   -->
     
     
     <script>

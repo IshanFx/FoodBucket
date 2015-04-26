@@ -21,12 +21,14 @@
              h4,p{color: #ffffff;}
             
         </style>
-
+        
         <script>
+            var point1=6.873566;
+            var point2=79.891259;
             function initialize() {
                 var mapProp = {
-                    center: new google.maps.LatLng(51.508742, -0.120850),
-                    zoom: 5,
+                    center: new google.maps.LatLng(point1, point2),
+                    zoom: 20,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
                 var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
@@ -44,7 +46,7 @@
 
         <div class="container">
             
-         <div id="googleMap" style="width:1180px;height:380px; margin-top: 120px"></div>  
+         <div id="googleMap" style="width:1180px;height:380px; margin-top: 200px"></div>  
 
             <div class="row">	
 
@@ -88,13 +90,14 @@
                     <div class="span6 " >
                     
                     <div class="span3">
-                        <h3 class="icon-food">&nbsp;&nbsp; Borella</h3>
+                        <h3 class="icon-food" >&nbsp;&nbsp; Borella</h3>
+                        
                         <h4 style="color: #002a80"><i class="icon-phone">&nbsp;&nbsp;011-331-3123</i></h4>
                         <p style="color: #002a80;font-size: 17px;font-weight: bold;">N09, Perera Road,Colombo 8</p>
                     </div>
                        
                     <div class="span3">
-                        <h3 class="icon-food">&nbsp;&nbsp; Nugegoda</h3>
+                        <h3 class="icon-food" >&nbsp;&nbsp;Nugegoda</h3>
                         <h4 style="color: #002a80;"><i class="icon-phone">&nbsp;&nbsp;011-311-8889</i></h4>
                         <p style="color: #002a80;font-size: 17px;font-weight: bold;">N0 27, High level Road,Colombo 5</p>
                     </div>
@@ -112,7 +115,7 @@
         </div> 
         
         <!---------------------Start Thumnail------------------------------------>          
-            <marquee direction="right" >
+    <marquee direction="right" >
         <div id="beforeFooter" class="cntr">
             <div class="container-fluid" style="margin-left: 40px; margin-top: 100px;">
 
@@ -125,7 +128,7 @@
     </marquee>
             <!---------------------End Thumnail------------------------------------>       
 
-
+          
 
         <%@include file="Import/footer.jsp" %>
 
@@ -136,7 +139,10 @@
                     type: 'POST',
                     data: $('#contactform').serialize(),
                     success:function(succ){
-                        alert("Success");
+                        alert("Send Success");
+                    },
+                    error:function (msg){
+                        alert("Not send.Try again");
                     }
                 });
                 

@@ -14,6 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%@include file="logcheck.jsp" %>
           <script src="js/jquery.js"></script>
           <div id="specialtable">
                 <div class="table-responsive"  >

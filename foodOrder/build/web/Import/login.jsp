@@ -46,7 +46,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"
                 aria-hidden="true">×</button>
-        <h3 id="myModalLabel" class="cntr">Enter the Sen Saal</h3>
+        <h3 id="myModalLabel" class="cntr">Enter the Food Bucket</h3>
     </div>
     <div class="modal-body">
 
@@ -57,7 +57,7 @@
                 <h4 class="cntr">Register here</h4><hr>
                 <form class="form-horizontal" id="regform" method="POST" action="RegisterS">
                     <div class="control-group">
-                        <label class="control-label" for="fistName">First name</label>
+                        <label class="control-label" for="fistName">First name(Username)</label>
                         <div class="controls">
                             <input class="element input-xlarge" type="text" name="fname" maxlength="45" placeholder="First name" required>
                         </div>
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label" for="inputPassword">Renter password</label>
+                        <label class="control-label" for="inputPassword">Reenter password</label>
                         <div class="controls">
                             <input class="element input-xlarge left" type="password" id="conform" maxlength="20" data-match="#password" name="conform"  required>
                             <input type="hidden" name="hidden" value="reg"/>
@@ -123,7 +123,7 @@
                     <div class="control-group">
                         <div class="controls">
                             <label class="checkbox">
-                                <input type="checkbox" required> Agree teem's condition
+                                <input type="checkbox" required> Agree terms & condition
                             </label>                            
                             <button  type="submit" class="btn btn-info input-large">Sign in </button>
                             <button  type="reset" class="btn btn-inverse">Cancel </button>
@@ -146,9 +146,15 @@
                         <label class="control-label" for="inputPassword">Password</label>
                         <div class="controls">
                             <input class="element input-xlarge" type="password" name="pass" placeholder="Password" required>
-                            <p>forgot password</p>
+                            
                         </div>
+                       
                     </div>
+                    
+                    
+
+                    
+                            
                     <div class="control-group ">
                         <div class="controls">
                             <label class="checkbox">
@@ -159,15 +165,59 @@
                             <button  type="reset" class="btn btn-inverse">Cancel </button>
                         </div>
                     </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label class="checkbox" >
+                            <input type="checkbox" name="forpass" id="forpass" ><p>Forget Password</p>
+                        </label>
+                        </div>
+  
+                    </div>
                     <!-- <div class="span4 cntr"><img src="themes/images/beforeFooter/bf3.png" style=" width: 370px;height: 150px;"></div>-->
                 </form>
+                <div class="forgetpass" style="display:none" >
+                <form class="form-horizontal" method="POST" action="ForgotPasswordS">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail"></label>
+                        <div class="controls">
+                            <input id="user" placeholder="User Name" class="form-control" name="user" type="text"  required="">
+                        </div>
+                    </div>
+                     <div class="control-group">
+                        <label class="control-label" for="inputEmail"></label>
+                        <div class="controls">
+                            <input id="emailInput" placeholder="email address" class="form-control " name="email" type="email" oninvalid="setCustomValidity('Please enter a valid email address!')" onchange="try{setCustomValidity('')}catch(e){}" required="">
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword"></label>
+                        <div class="controls">
+                             <input class="btn btn-lg btn-primary btn-block " value="Send My Password" type="submit">
+                                    <br>
+                                  <span>${status}</span>
+                        </div>
+                    </div>
+                                   
+                </form>
+                </div> 
 
             </div>
         </div>
     </div>
 
 
-
+                        <script>
+                           
+                            $('#forpass').click(function(){
+                                if($('#forpass').prop('checked')){
+                                    $('.forgetpass').show();
+                                }
+                                else{
+                                    $('.forgetpass').hide();
+                                }
+                             });
+                        </script>
 
         
 

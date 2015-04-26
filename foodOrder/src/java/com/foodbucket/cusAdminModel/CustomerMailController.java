@@ -50,13 +50,13 @@ public class CustomerMailController extends HttpServlet {
        // response.setCharacterEncoding("UTF-8");
        
         if(type==null){
-            out.println("success");
+           
             cusMail.sendEmail(mail, subject, body);
             chk = true;
             //response.sendRedirect("customer.jsp");
         }
         else{
-            out.println("success");
+          
             mail ="toAll";
             cusMail.sendEmail(mail, subject, body);
          //   response.sendRedirect("email.jsp");
@@ -67,7 +67,7 @@ public class CustomerMailController extends HttpServlet {
         //response.getWriter().write(new Gson().toJson(map));
         }
         catch(Exception ex){
-           out.println(ex);
+        
         }
          
        

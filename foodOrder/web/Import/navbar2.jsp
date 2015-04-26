@@ -4,6 +4,7 @@
     Author     : Suresh
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <style>
@@ -87,10 +88,17 @@
     }
 %>
 
+<% HttpSession see = request.getSession();
+    int cartitems=0;
+    if(see.getAttribute("cart")!=null){
+        ArrayList cartMyList =(ArrayList) see.getAttribute("cart");
+        cartitems = cartMyList.size();
+    }
+%>
 <div id="headerSection">
     <div class="nav-collapse right" style="margin-left: 60%;">
                 <ul class="nav topnavigation">
-                    <li><a href="order.jsp" class="btn-large btn-success" style="border:1px solid gray;color: white; font-size: 15px; background-color:white; border-radius: 15px;"><span class="fa-2x fa-shopping-cart"></span> Cart </a></li>
+                    <li><a href="order.jsp" class="btn-large btn-success" style="border:1px solid gray;color: white; font-size: 15px; background-color:white; border-radius: 15px;"><span class="fa-2x fa-shopping-cart">Cart&nbsp;&nbsp;&nbsp;</span> <span class="badge btn-primary" style="font-size:20"><%=cartitems %></span> </a></li>
                                     <li><a href="AccountS?parem1=<%=username%>">Account</a></li>
                                     
                                   <!--  <li><a href="#feedbackModel" data-toggle="modal">FeedBack</a></li>-->

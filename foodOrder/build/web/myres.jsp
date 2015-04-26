@@ -24,7 +24,7 @@
 
     </head>
     <body>
-        <%@include file="Import/usercheck.jsp" %> %>
+        <%@include file="Import/usercheck.jsp" %>
         <%@include  file="Import/navbar2.jsp" %>
         
         

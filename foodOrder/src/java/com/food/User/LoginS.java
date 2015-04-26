@@ -49,10 +49,13 @@ public class LoginS extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
+         PrintWriter out = response.getWriter();
         User user=new User();
+         HttpSession userSecssion=request.getSession();
         ResultSet rst=null;
         int st;
+        String adminE="admin@gmail.com";
+        String adminP="admin123";
         String addr="",email="",psw="",uname="";
         int id=0;
              
@@ -69,10 +72,17 @@ public class LoginS extends HttpServlet {
                 psw=rst.getString(4);
                 uname=rst.getString(5);
             }
-                        
+            if(adminE.equals(request.getParameter("email")) && adminP.equals(request.getParameter("pass")))
+            {
+                userSecssion.setAttribute("adminlogin",adminE );
+                response.sendRedirect("backend/");
+                 
+            }
+            else
+            {
             if(psw.equals(request.getParameter("pass"))&& email.equals(request.getParameter("email")))
             {
-                HttpSession userSecssion=request.getSession();
+               
                 userSecssion.setAttribute("username",uname);
                 userSecssion.setAttribute("useremail",email);
                 userSecssion.setAttribute("userid",id);
@@ -80,7 +90,8 @@ public class LoginS extends HttpServlet {
                 //userSecssion.setMaxInactiveInterval(20*60);
                 if(remember==null)
                 {
-                  response.sendRedirect("index.jsp");  
+                  response.sendRedirect("index.jsp");
+                 
                 }
                 else
                 {
@@ -96,9 +107,14 @@ public class LoginS extends HttpServlet {
                 request.setAttribute("msg",msg);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
+            }
+            
             } catch (SQLException ex) {
             Logger.getLogger(LoginS.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+  
+
   
     }
 

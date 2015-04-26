@@ -7,7 +7,7 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="com.foodbucket.reportModel.Report"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="application/pdf" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,6 +17,7 @@
     </head>
     
     <body>
+     <%@include file="logcheck.jsp" %>    
                 
     <% Report report2 = new Report(); %>
        

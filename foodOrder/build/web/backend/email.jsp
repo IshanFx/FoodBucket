@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%@include file="logcheck.jsp" %>
         <form role="form" id="customMailForm" >
                                         <label>To</label>
                                         <div class="form-group">
@@ -66,10 +67,18 @@
                 data:  $('#customMailForm').serialize(),
                 success:function (data){
                    
-                    alert(data);
+                    alert("Mail send Success");
                  $('#customMailForm').load('email.jsp').delay(2000);  
                     
-                }
+                },
+                
+                error: function (jqXHR, textStatus, errorThrown) {
+                  if (jqXHR.status == 500) {
+                      alert('mail Not send ');
+                  } else {
+                      alert('mail Not send ');
+                  }
+              }
             });
             return false;
         });

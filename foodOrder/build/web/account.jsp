@@ -108,7 +108,7 @@
                                         <label class="control-label" for="fistName"></label>
                                         <div class="controls"> 
                                             <input type="hidden" name="hidden" value="<%=username%>"/>
-                                            <input type="hidden" name="hidden" value="dashboard"/>
+                                            <input type="hidden" name="hidden1" value="dashboard"/>
                                             <input type='submit' value="Update" class=" btn btn-success">
                                             <button type="reset"  class="btn btn-danger">clear</button>
                                         </div>
@@ -152,7 +152,8 @@
     conforma.onkeyup = validatePassword;
 </script>
                                             <br><br>
-                                            <input type="hidden" name="hidden" value="<%=username%>"/>                                         
+                                            <input type="hidden" name="hidden" value="<%=username%>"/> 
+                                            <input type="hidden" name="hidden1" value="password"/> 
                                             <input type='submit' value="Update" class=" btn btn-success">
                                             <button type="reset"  class="btn btn-danger">clear</button>                                         
                                         </div>
@@ -217,11 +218,11 @@
                                                      <li class="span3">                                                        
                                                          <div class="thumbnail">                                                            
                                                              <div class="blockDtl">
-                                                                 <img src=" http://localhost:8080/images/<%=Nset.getString(1)%>" alt="">
+                                                                 <img src=" http://localhost:8080/images/<%=Nset.getString(1)%>" style=" width: 250px;height: 250px;" alt="">
                                                                  <h4><%=Nset.getString(2)%></h4>
-                                                                 <p>Extra :<%=Nset.getString(3)%></p>
-                                                                 <p>Quantity :<%=Nset.getString(4)%></p>
-                                                                 <p>Total :<%=Nset.getString(5)%></p>
+                                                                 <p>Order Date:<%=Nset.getString(3)%>/<%=Nset.getString(4)%>/<%=Nset.getString(5)%></p>
+                                                                 <p>Quantity :<%=Nset.getString(6)%></p>
+                                                                 <p>Total :<%=Nset.getString(7)%></p>
                                                                  <p></p>
                                                              </div>                                                                
                                                          </div>                                                       

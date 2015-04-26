@@ -33,9 +33,9 @@
 </head>
 
 <body>
-
+    <%@include file="logcheck.jsp" %>
     <div id="wrapper">
-
+      
         <!-- Navigation -->
         <%@include file="menu.jsp" %>
         <% FoodBL food = new FoodBL(); %>

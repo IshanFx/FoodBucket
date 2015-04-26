@@ -39,7 +39,7 @@
 </head>
 
 <body>
-
+     <%@include file="logcheck.jsp" %>
     <div id="wrapper">
 
         <!-- Navigation -->

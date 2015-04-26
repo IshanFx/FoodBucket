@@ -72,6 +72,10 @@
         <servlet-name>NormalOrderPlaceController</servlet-name>
         <servlet-class>com.foodbucket.ClientController.NormalOrderPlaceController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ForgotPasswordS</servlet-name>
+        <servlet-class>com.food.User.ForgotPasswordS</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FoodServlet</servlet-name>
         <url-pattern>/backend/FoodServlet</url-pattern>
@@ -144,6 +148,10 @@
         <servlet-name>NormalOrderPlaceController</servlet-name>
         <url-pattern>/NormalOrderPlaceController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotPasswordS</servlet-name>
+        <url-pattern>/ForgotPasswordS</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -156,4 +164,12 @@
             E:\Program Files (x86)\tomcat\webapps\images\
          </param-value>
     </context-param>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+   </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+   </error-page>
 </web-app>

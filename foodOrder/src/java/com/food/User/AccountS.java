@@ -38,8 +38,9 @@ public class AccountS extends HttpServlet {
         User user=new User();
         int status=0;
         String msg;
-        PrintWriter out=response.getWriter(); 
-        if(request.getParameter("hidden")=="dashboard"){
+        PrintWriter out=response.getWriter();
+        if("dashboard".equals(request.getParameter("hidden1")))
+        {
         if(request.getParameter("hidden")=="SIGN IN"){
            response.sendRedirect("AccountS?parem1=<%=username%>");
         }
@@ -61,7 +62,7 @@ public class AccountS extends HttpServlet {
         request.getRequestDispatcher("account.jsp").forward(request, response);
         }
         }
-        else
+        if("password".equals(request.getParameter("hidden1")))
         {
             String password;
             if(request.getParameter("hidden")=="SIGN IN"){
